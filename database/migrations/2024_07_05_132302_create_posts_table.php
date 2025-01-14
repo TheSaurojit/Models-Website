@@ -13,49 +13,49 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->boolean('headline')->default(0);
-            $table->foreignId('parent_id')->nullable()->constrained('categories')->cascadeOnDelete(); // For subcategories
+            $table->string('name')->unique();
+            $table->string('slug');
+            // $table->foreignId('parent_id')->nullable()->constrained('categories')->cascadeOnDelete(); // For subcategories
             $table->timestamps();
         });
 
 
-        Schema::create('authors', function (Blueprint $table) {
-            $table->id();
-            $table->text('name');
-            $table->longText('bio');
-            $table->longText('image');
-            $table->timestamps();
-        });
+        // Schema::create('authors', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->text('name');
+        //     $table->longText('bio');
+        //     $table->longText('image');
+        //     $table->timestamps();
+        // });
 
 
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
+        // Schema::create('posts', function (Blueprint $table) {
+        //     $table->id();
 
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+        //     $table->foreignId('category_id')->constrained()->onDelete('cascade');
 
-            $table->foreignId('author_id')->nullable()->constrained()->onDelete('set null');
+        //     $table->foreignId('author_id')->nullable()->constrained()->onDelete('set null');
 
-            $table->boolean('trending')->default(0);
+        //     $table->boolean('trending')->default(0);
 
-            $table->text('title');
+        //     $table->text('title');
 
-            $table->longText('slug');
+        //     $table->longText('slug');
 
-            $table->longText('blog');
+        //     $table->longText('blog');
 
-            $table->longText('thumbnail');
+        //     $table->longText('thumbnail');
 
-            $table->longText('description')->nullable();
+        //     $table->longText('description')->nullable();
 
-            $table->text('image_caption')->nullable();
+        //     $table->text('image_caption')->nullable();
 
-            $table->text('keywords')->nullable();
+        //     $table->text('keywords')->nullable();
 
-            $table->timestamps();
+        //     $table->timestamps();
 
-            $table->softDeletes();  // Adds a 'deleted_at' column
-        });
+        //     $table->softDeletes();  // Adds a 'deleted_at' column
+        // });
 
         
     
@@ -68,9 +68,9 @@ return new class extends Migration
     {
         Schema::dropIfExists('categories');
 
-        Schema::dropIfExists('authors');
+        // Schema::dropIfExists('authors');
         
-        Schema::dropIfExists('posts');
+        // Schema::dropIfExists('posts');
 
     }
 };

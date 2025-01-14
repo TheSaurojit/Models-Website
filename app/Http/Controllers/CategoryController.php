@@ -4,78 +4,66 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
-    public function show( Request $request) 
+    public function createView(Request $request)
     {
-
-        return view('admin.create-category');
-        
+        return view('admin.category.create-category');
     }
-  
 
-    public function create( Request $request)
+
+    public function create(Request $request)
     {
         $request->validate([
-            'category' => 'required ',
-            'headline' => 'required',
+            'category' => ['required', 'unique:categories,name']
         ]);
 
-        $exist = Category::where('category', $request->category)->first();
-        
-        if( $exist ) return redirect()->back()->withErrors("Category already exists");
-
         try {
+
             Category::create([
-                'category' => $request->category,
-                'headline' => $request->headline === 'true' ? true : false,
+                'name' => $request['category'],
+                'slug' => Str::slug($request['category'])
             ]);
+
             return redirect()->route('all-category')->with('success', 'Category Created');
 
-
-        } catch (\Throwable $th) {
+        } catch (\Exception $th) {
 
             return back()->with('error', 'Something went wrong');
         }
     }
 
-    public function updateShow( Request $request , Category $id)  
+    public function updateView(Request $request, Category $id)
     {
-        $category = $id ;
-        return view('admin.create-category' , compact('category'));
-        
+        $category = $id;
+        return view('admin.category.update-category', compact('category'));
     }
 
-    public function update (Request $request , Category $id)
+    public function update(Request $request, Category $id)
     {
 
         $request->validate([
-            'category' => 'required ',
-            'headline' => 'required',
+            'category' => 'required',
         ]);
 
-        if( $request->category == $id->category){
+        $categoryName = $request->input('category');
 
-            $id->update([
-                'headline' => $request->headline === 'true' ? true : false 
-            ]);
+        if ($categoryName == $id->name) {
             return redirect()->route('all-category')->with('success', 'Category Updated');
-
         }
-        else{
 
-            $exist = Category::where('category', $request->category)->first();
-
-            if( $exist )  return redirect()->back()->withErrors("Category already exists");
-
-            $id->update([
-                'category' => $request->category,
-                'headline' => $request->headline === 'true' ? true : false
-            ]);
-            return redirect()->route('all-category')->with('success', 'Category Updated');
-
+        if (Category::where('name', $categoryName)->exists()) {
+            return redirect()->back()->withErrors("Category already exists");
         }
+
+        $id->update([
+            'name' => $categoryName,
+            'slug' => Str::slug($categoryName)
+        ]);
+
+        return redirect()->route('all-category')->with('success', 'Category Updated');
     }
 
     public function delete(Category $id)
@@ -85,46 +73,11 @@ class CategoryController extends Controller
         return redirect()->route('all-category')->with('success', 'Category Deleted');
     }
 
-    public function all_category()  
+    public function allCategory()
     {
-    
-        return view('admin.all_category');
-    }
 
+        $allCategory = Category::all();
 
-    public function viewSubCategory(Request $request)
-    {
-        return view('admin.sub-category');
-
-    }
-
-    public function subCategory(Request $request)
-    {
-               $request->validate([
-            'sub-category' => 'required ',
-            'parent-category' => 'required '
-        ]); 
-
-        try {
-
- 
-                $exist = Category::where('category', $request['sub-category'])->first();
-                
-                if( $exist ) return redirect()->back()->withErrors("Category already exists");
-
-                Category::create([
-                    'category' => $request['sub-category'],
-                    'parent_id' => $request['parent-category']
-                ]);
-
-
-                return redirect()->route('all-category')->with('success', 'Category Created');
-                   
-            } catch (\Throwable $th) {
-
-            return back()->with('error', 'Something went wrong');
-
-                   
-            }       
+        return view('admin.category.all-category', compact('allCategory'));
     }
 }

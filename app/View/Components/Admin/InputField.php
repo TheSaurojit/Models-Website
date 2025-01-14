@@ -8,12 +8,28 @@ use Illuminate\View\Component;
 
 class InputField extends Component
 {
+    public $type;
+    public $name;
+    public $label;
+    public $value;
+    public $id;
+
     /**
      * Create a new component instance.
      */
-    public function __construct()
-    {
-        //
+
+    public function __construct(
+        $name,
+        $type ,
+        // $label = null,
+        $value = null,
+        $id = null,
+    ) {
+        $this->name = $name;
+        $this->type = $type;
+        // $this->label = $label;
+        $this->value = $value;
+        $this->id = $id;
     }
 
     /**

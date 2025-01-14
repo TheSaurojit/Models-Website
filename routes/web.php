@@ -15,11 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 //     $hashed =  bcrypt('123') ;
 
+//     dd($hashed);
+
 // User::create([
 //         'name' => 'admin',
 //         'email' => 'admin@gmail.com',
 //         'password' => $hashed 
 //     ]);
+
+// $2y$10$hgehOwMjsBw4sCawp7WWBekvS.ZS54/BwZwyWnl1KK3gAmy8wkz3S
+
+
+
+// blue $2y$10$VasnzOYp0aqI49QY3Z00xO0M4fG.adwSBgufNe8wmYm.W3fI5/sFe
 
 // })->name('admin');
 
@@ -27,29 +35,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/','admin.home') ;
 
-Route::view('/form','admin.category.form') ;
 
-Route::post('/form',fn() => request() ) ;
-
-
-
-
-// Route::get('/',[PageController::class, 'home'])->name('home'); 
-
-// Route::get('/category/{category}',[PageController::class, 'category'])->name('category'); 
- 
-// Route::get('/blog/{slug}', [PageController::class, 'blog'])->name('blog');
-
-// Route::get('/search', [PageController::class, 'search'])->name('search');
 
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/login', [LoginController::class, 'loginForm'])->name('login');
 
 
+Route::prefix('auth')->group(function () {
 
-Route::prefix('auth')->middleware('auth')->group(function () {
+// Route::prefix('auth')->middleware('auth')->group(function () {
     
+
     Route::get('/', function () {
 
          return view('admin.dashboard');
@@ -99,20 +96,18 @@ Route::prefix('auth')->middleware('auth')->group(function () {
 
     Route::controller(CategoryController::class)->group( function(){ 
 
-        Route::get('/create-category',  'show')->name('create-category');
+        Route::get('/create-category',  'createView')->name('create-category');
         Route::post('/create-category',  'create')->name('create-category');
 
-        Route::get('/update-category/{id}',  'updateShow')->name('update-category');
+        Route::get('/update-category/{id}',  'updateView')->name('update-category');
         Route::post('/update-category/{id}',  'update')->name('update-category');
 
 
         Route::get('/delete-category/{id}',  'delete')->name('delete-category');
 
 
-        Route::get('/all-category' ,  'all_category')->name('all-category');
+        Route::get('/all-category' ,  'allCategory')->name('all-category');
 
-        Route::get('/sub-category',  'viewSubCategory')->name('sub-category');
-        Route::post('/sub-category' ,'subCategory')->name('sub-category') ;
 
     });
 
