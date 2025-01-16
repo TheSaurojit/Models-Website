@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
+
 class InputField extends Component
 {
     public $type;
@@ -17,14 +18,10 @@ class InputField extends Component
     /**
      * Create a new component instance.
      */
+    public function __construct(string $name , string $type, string  $value = null, string $id = null)
+    {
 
-    public function __construct(
-        $name,
-        $type ,
-        // $label = null,
-        $value = null,
-        $id = null,
-    ) {
+        // public function __construct($name, $type ,  $value = null, $id = null) {
         $this->name = $name;
         $this->type = $type;
         // $this->label = $label;

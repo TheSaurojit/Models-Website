@@ -4,7 +4,8 @@
 @section('body')
 
 
-   @include('admin.layout.error-msg')
+   @include('admin.layout.helper.error-msg')
+
 
 
     <div class="row">

@@ -20,13 +20,13 @@ return new class extends Migration
         });
 
 
-        // Schema::create('authors', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->text('name');
-        //     $table->longText('bio');
-        //     $table->longText('image');
-        //     $table->timestamps();
-        // });
+        Schema::create('authors', function (Blueprint $table) {
+            $table->id();
+            $table->text('name')->nullable();
+            $table->longText('bio')->nullable();
+            $table->longText('image');
+            $table->timestamps();
+        });
 
 
         // Schema::create('posts', function (Blueprint $table) {
@@ -68,7 +68,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('categories');
 
-        // Schema::dropIfExists('authors');
+        Schema::dropIfExists('authors');
         
         // Schema::dropIfExists('posts');
 

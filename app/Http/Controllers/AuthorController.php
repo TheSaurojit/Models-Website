@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\FileUploader;
 use App\Models\Author;
 use Illuminate\Http\Request;
 
@@ -9,32 +10,25 @@ class AuthorController extends Controller
 {
 
 
-    public function handleFileUpload($file,  $path  )
+    public function createView()
     {
-        $fileName = $file->getClientOriginalName();
-        $file->move(public_path($path), $fileName);
-
-        return "/$path/" . $fileName;
-    }
-
-    public function show()
-    {
-        return view('admin.create-author');
+        return view('admin.author.create-author');
     }
 
     public function create(Request $request)
     {
 
         $request->validate([
-            'name' => 'required' ,
-            'bio' => 'required' ,
-            'author_image' => 'required' 
-        ]) ;
+            'name' => ['required'] ,
+            'bio' => ['required'] ,
+            'image' => ['required', 'image']
+           ]) ;
 
+           $file = $request->file('image') ;
+
+           $authorImagePath = FileUploader::uploadFile($file);
 
         try {
-
-            $authorImagePath = $this->handleFileUpload($request->file('author_image') ,'images/author') ;
 
             Author::create([
                 'name' => $request->input('name') ,
@@ -44,43 +38,43 @@ class AuthorController extends Controller
 
             return redirect()->route('all-author')->with('success', 'Author Created');
 
-        } catch (\Throwable $th) {
+        } catch (\Exception $e) {
 
             return redirect()->back()->withErrors("Some error occured ");
         }
     }
 
 
-    public function updateShow( Author $id)
+    public function updateView( Author $id)
     {
         $author = $id ;
 
-        return view('admin.create-author',compact('author')) ;
+        return view('admin.author.update-author',compact('author')) ;
 
     }
 
     public function update(Request $request , Author $id)
     {
+
         $request->validate([
             'name' => 'required' ,
             'bio' => 'required' ,
         ]) ;
 
         try {
+            
+            $updatedData = $request->only(['name', 'bio']);
 
+            $file = $request->file('image') ;
 
-            $updateData = $request->only(['name', 'bio']);
+            if ($file) {
 
+                $authorImagePath = FileUploader::uploadFile($file);
 
-            if ($request->hasFile('author_image')) {
-
-                $authorImagePath = $this->handleFileUpload($request->file('author_image'), 'images/author');
-
-                $updateData['image'] = $authorImagePath;
-
+                $updatedData['image'] = $authorImagePath;
             }
         
-            $id->update($updateData);
+            $id->update($updatedData);
 
             return redirect()->route('all-author')->with('success', 'Author Updated');
 
@@ -90,14 +84,7 @@ class AuthorController extends Controller
 
         }
     }
-
-    public function all_author()
-    {
-        $authors = Author::all() ;
-
-        return view('admin.all_author',compact('authors')) ;
-    }
-
+  
     public function delete( Author $id )
     {
         $id->delete() ;
@@ -107,6 +94,12 @@ class AuthorController extends Controller
 
     }
 
+    public function all_author()
+    {
+        $authors = Author::all() ;
+
+        return view('admin.author.all-author',compact('authors')) ;
+    }
 
 
 }

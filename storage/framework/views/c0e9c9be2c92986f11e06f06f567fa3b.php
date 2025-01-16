@@ -4,7 +4,8 @@
 <?php $__env->startSection('body'); ?>
 
 
-    <?php echo $__env->make('admin.layout.error-msg', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('admin.layout.helper.error-msg', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
 
     <div class="row">

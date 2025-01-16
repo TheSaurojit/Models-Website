@@ -12,10 +12,22 @@
 
 
                             @foreach ($headers as $header)
+
                                 <th>{{ Str::title($header) }}</th>
+
                             @endforeach
 
-                                <th>Action</th>
+
+                            @if ( $headers == "Image"  )
+
+                                <th> Image </th>
+
+                            @endif
+
+
+                            <th>Action</th>
+
+
 
                         </tr>
                     </thead>
@@ -30,6 +42,14 @@
                                 @foreach ($columns as $column)
                                     <td>{{ $row[$column] ?? 'N/A' }}</td>
                                 @endforeach
+
+                                @if ( $row["image"] || $row["thumbnail"] )
+
+                                <td>
+                                    <img src="{{ $row["image"] ?? $row["thumbnail"] }}" alt="" style="max-width: 120px ; max-height: 120px ">
+                                </td>
+                                    
+                                @endif
 
                                 <td>
 

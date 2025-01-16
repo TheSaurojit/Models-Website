@@ -1,8 +1,6 @@
 
 
 
-
-
 <?php $__env->startSection('body'); ?>
 
 
@@ -12,11 +10,11 @@
     <div class="w-100">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">All Categories</h4>
+                <h4 class="card-title mb-4">All Authors</h4>
                 
                 <?php if (isset($component)) { $__componentOriginal781089cd478f3e09d520a65f160df974 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal781089cd478f3e09d520a65f160df974 = $attributes; } ?>
-<?php $component = App\View\Components\Admin\Table::resolve(['headers' => ['Name'],'columns' => ['name'],'arrayData' => $allCategory,'editUrl' => 'update-category','deleteUrl' => 'delete-category'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = App\View\Components\Admin\Table::resolve(['headers' => ['Name' ,'Image'],'columns' => ['name'],'arrayData' => $authors,'editUrl' => 'update-author','deleteUrl' => 'delete-author'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('admin.table'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -41,4 +39,4 @@
 
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('admin.layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\DESKTOP\Desktop\Models Laravel\resources\views/admin/category/all-category.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\DESKTOP\Desktop\Models Laravel\resources\views/admin/author/all-author.blade.php ENDPATH**/ ?>

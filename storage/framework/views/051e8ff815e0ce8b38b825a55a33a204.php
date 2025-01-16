@@ -12,10 +12,22 @@
 
 
                             <?php $__currentLoopData = $headers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $header): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
                                 <th><?php echo e(Str::title($header)); ?></th>
+
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                                <th>Action</th>
+
+                            <?php if( $headers == "Image"  ): ?>
+
+                                <th> Image </th>
+
+                            <?php endif; ?>
+
+
+                            <th>Action</th>
+
+
 
                         </tr>
                     </thead>
@@ -31,6 +43,14 @@
                                 <?php $__currentLoopData = $columns; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $column): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <td><?php echo e($row[$column] ?? 'N/A'); ?></td>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                <?php if( $row["image"] || $row["thumbnail"] ): ?>
+
+                                <td>
+                                    <img src="<?php echo e($row["image"] ?? $row["thumbnail"]); ?>" alt="" style="max-width: 120px ; max-height: 120px ">
+                                </td>
+                                    
+                                <?php endif; ?>
 
                                 <td>
 

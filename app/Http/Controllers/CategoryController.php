@@ -28,7 +28,6 @@ class CategoryController extends Controller
             ]);
 
             return redirect()->route('all-category')->with('success', 'Category Created');
-
         } catch (\Exception $th) {
 
             return back()->with('error', 'Something went wrong');
@@ -44,17 +43,20 @@ class CategoryController extends Controller
     public function update(Request $request, Category $id)
     {
 
+        $bool = true;
+
         $request->validate([
             'category' => 'required',
         ]);
 
         $categoryName = $request->input('category');
 
-        if ($categoryName == $id->name) {
-            return redirect()->route('all-category')->with('success', 'Category Updated');
+        if (strtolower($categoryName) == strtolower($id->name)) {
+            $bool = false;
         }
 
-        if (Category::where('name', $categoryName)->exists()) {
+
+        if ($bool && Category::where('name', $categoryName)->exists()) {
             return redirect()->back()->withErrors("Category already exists");
         }
 

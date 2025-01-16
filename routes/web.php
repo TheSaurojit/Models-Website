@@ -35,9 +35,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/','admin.home') ;
 
-
-
-
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/login', [LoginController::class, 'loginForm'])->name('login');
 
@@ -113,11 +110,11 @@ Route::prefix('auth')->group(function () {
 
     Route::controller(AuthorController::class)->group( function(){
 
-        Route::get('/create-author',  'show')->name('create-author');
+        Route::get('/create-author',  'createView')->name('create-author');
         Route::post('/create-author',  'create')->name('create-author');
 
         
-        Route::get('/update-author/{id}',  'updateShow')->name('update-author');
+        Route::get('/update-author/{id}',  'updateView')->name('update-author');
         Route::post('/update-author/{id}',  'update')->name('update-author');
 
 

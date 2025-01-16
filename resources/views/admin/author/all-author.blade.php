@@ -1,8 +1,6 @@
 @extends('admin.layout.app')
 
 
-
-
 @section('body')
 
 
@@ -12,14 +10,14 @@
     <div class="w-100">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">All Categories</h4>
+                <h4 class="card-title mb-4">All Authors</h4>
                 
                 <x-admin.table 
-                    :headers="['Name']"
+                    :headers="['Name' ,'Image']"
                     :columns="['name']"
-                    :arrayData="$allCategory"
-                    :editUrl="'update-category'"
-                    :deleteUrl="'delete-category'"
+                    :arrayData="$authors"
+                    :editUrl="'update-author'"
+                    :deleteUrl="'delete-author'"
                 />
                 
             </div>

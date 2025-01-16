@@ -1,0 +1,59 @@
+<div class="col-sm-9">
+    <!-- Hidden File Input -->
+    <h6 class="form-label mb-4 mt-4">{{ Str::title(Str::replace("_"," ",$name)) }}</h6>
+
+    <input 
+        type="file" 
+        class="form-control d-none" 
+        id="horizontal-{{ $name }}-input" 
+        name="{{ $name }}" 
+        accept="image/*" 
+        onchange="previewImage(event, '{{ $name }}')"
+    >
+    
+    <!-- Upload or Change Button -->
+    @if ($value)
+        <div id="{{ $name }}-preview-container" class="mt-3">
+            <img 
+                id="{{ $name }}-preview" 
+                src="{{ $value }}" 
+                alt="{{ ucfirst($name) }} Preview" 
+                style="max-width: 300px ; max-height: 300px; border: 1px solid #ddd; padding: 5px;"
+            >
+            <button 
+                type="button" 
+                class="btn btn-secondary mt-2" 
+                onclick="document.getElementById('horizontal-{{ $name }}-input').click();"
+            >
+                Change Image
+            </button>
+        </div>
+    @else
+        <button 
+            type="button" 
+            class="btn btn-primary" 
+            id="upload-{{ $name }}-button" 
+            onclick="document.getElementById('horizontal-{{ $name }}-input').click();"
+        >
+            Upload {{ Str::title(Str::replace("_"," ",$name)) }}
+            
+
+        </button>
+
+        <div id="{{ $name }}-preview-container" class="mt-3" style="display: none;">
+            <img 
+                id="{{ $name }}-preview" 
+                src="#" 
+                alt="{{ ucfirst($name) }} Preview" 
+                style="max-width: 300px ; max-height: 300px; border: 1px solid #ddd; padding: 5px;"
+            >
+            <button 
+                type="button" 
+                class="btn btn-secondary mt-2" 
+                onclick="document.getElementById('horizontal-{{ $name }}-input').click();"
+            >
+                Change Image
+            </button>
+        </div>
+    @endif
+</div>

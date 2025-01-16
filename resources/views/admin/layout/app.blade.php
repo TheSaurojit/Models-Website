@@ -128,6 +128,17 @@
                                 </ul>
                             </li>
 
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-receipt"></i>
+                                    <span key="t-author">Author</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('create-author') }}" key="t-invoice-list">Create Author</a></li>
+                                    <li><a href="{{ route('all-author') }}" key="t-invoice-detail">All Authors</a></li>
+                                </ul>
+                            </li>
+
                          
 
 

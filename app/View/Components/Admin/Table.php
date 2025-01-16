@@ -4,6 +4,8 @@ namespace App\View\Components\Admin;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
+
 use Illuminate\View\Component;
 
 class Table extends Component
@@ -18,7 +20,7 @@ class Table extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($headers = [], $columns = [], $arrayData = [] , $editUrl =''  , $deleteUrl ='' )
+    public function __construct(array $headers , array $columns , array|Collection $arrayData  , string $editUrl , string $deleteUrl )
     {
         $this->headers = $headers;
         $this->columns = $columns;
