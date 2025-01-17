@@ -8,12 +8,20 @@ use Illuminate\View\Component;
 
 class SelectField extends Component
 {
+    public $name;
+    public $options;
+    public $value;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct( string $name , array $options , string $value = null )
     {
         //
+
+        $this->name = $name ;
+        $this->options = $options ;
+        $this->value = $value ;
+
     }
 
     /**

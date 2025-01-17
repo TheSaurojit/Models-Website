@@ -14,7 +14,7 @@
         <div class="w-100">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Create Author</h4>
+                    <h4 class="card-title mb-4">Update Author</h4>
 
                     <form action="{{ route('update-author',['id' => $author["id"] ]) }}" method="POST" enctype="multipart/form-data">
 

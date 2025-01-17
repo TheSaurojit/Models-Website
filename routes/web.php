@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CelebrityController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
@@ -121,9 +122,27 @@ Route::prefix('auth')->group(function () {
         Route::get('/delete-author/{id}',  'delete')->name('delete-author');
 
 
-        Route::get('/all-author' ,  'all_author')->name('all-author');
+        Route::get('/all-author' ,  'allAuthor')->name('all-author');
 
     }) ;
+
+    Route::controller(CelebrityController::class)->group( function(){
+
+        Route::get('/create-celebrity',  'createView')->name('create-celebrity');
+        Route::post('/create-celebrity',  'create')->name('create-celebrity');
+
+        
+        Route::get('/update-celebrity/{id}',  'updateView')->name('update-celebrity');
+        Route::post('/update-celebrity/{id}',  'update')->name('update-celebrity');
+
+
+        Route::get('/delete-celebrity/{id}',  'delete')->name('delete-celebrity');
+
+
+        Route::get('/all-celebrity' ,  'allCelebrity')->name('all-celebrity');
+
+    }) ;
+
 
 
 

@@ -15,19 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('slug');
+            $table->timestamps();
+              
+            
             // $table->foreignId('parent_id')->nullable()->constrained('categories')->cascadeOnDelete(); // For subcategories
-            $table->timestamps();
         });
 
 
-        Schema::create('authors', function (Blueprint $table) {
-            $table->id();
-            $table->text('name')->nullable();
-            $table->longText('bio')->nullable();
-            $table->longText('image');
-            $table->timestamps();
-        });
-
+       
 
         // Schema::create('posts', function (Blueprint $table) {
         //     $table->id();
@@ -68,7 +63,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('categories');
 
-        Schema::dropIfExists('authors');
         
         // Schema::dropIfExists('posts');
 

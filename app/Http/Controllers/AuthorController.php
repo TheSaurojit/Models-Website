@@ -94,7 +94,7 @@ class AuthorController extends Controller
 
     }
 
-    public function all_author()
+    public function allAuthor()
     {
         $authors = Author::all() ;
 

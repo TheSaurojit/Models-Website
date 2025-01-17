@@ -139,6 +139,18 @@
                                 </ul>
                             </li>
 
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-receipt"></i>
+                                    <span key="t-celebrity">Model</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('create-celebrity') }}" key="t-invoice-list">Create Model</a></li>
+                                    <li><a href="{{ route('all-celebrity') }}" key="t-invoice-detail">All Models</a></li>
+                                </ul>
+                            </li>
+
                          
 
 
