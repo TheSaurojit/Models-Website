@@ -33,8 +33,20 @@ use Illuminate\Support\Facades\Route;
 // })->name('admin');
 
 
+Route::view('/', 'pages.home');
+Route::view('/profile', 'pages.profile');
+Route::view('/blogs', 'pages.blogs');
+Route::view('/blog', 'pages.blogfull');
+Route::view('/search', 'pages.search');
+Route::view('/about', 'pages.about');
+Route::view('/models', 'pages.models');
+Route::view('/contact', 'pages.contact');
+Route::view('/legal', 'pages.legal');
+Route::view('/privacy', 'pages.privacy');
+Route::view('/helpFaq', 'pages.helpFaq');
 
-Route::view('/','admin.home') ;
+
+// Route::view('/','admin.home') ;
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/login', [LoginController::class, 'loginForm'])->name('login');

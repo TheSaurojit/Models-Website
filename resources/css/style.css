@@ -1,0 +1,23 @@
+.mySwiper {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+  
+  .mySwiper .swiper-slide {
+    width: 160px; /* Adjust this width to control slide size */
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mySwiper .swiper-slide img {
+    display: block;
+    width: 100%; /* Ensures image scales properly */
+    height: 100%;
+    object-fit: cover;
+  }
