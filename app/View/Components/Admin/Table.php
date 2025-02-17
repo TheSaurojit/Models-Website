@@ -15,18 +15,19 @@ class Table extends Component
     public $arrayData;
     public $editUrl;
     public $deleteUrl;
-
+    public $first;
 
     /**
      * Create a new component instance.
      */
-    public function __construct(array $headers , array $columns , array|Collection $arrayData  , string $editUrl , string $deleteUrl )
+    public function __construct(array $headers , array $columns , array|Collection $arrayData  , string $editUrl , string $deleteUrl  ,string $first = null)
     {
         $this->headers = $headers;
         $this->columns = $columns;
         $this->arrayData = $arrayData;
         $this->editUrl = $editUrl;
         $this->deleteUrl = $deleteUrl;
+        $this->first = $first ;
 
     }
 

@@ -27,6 +27,7 @@
                     :arrayData="$posts"
                     :editUrl="'update-post'"
                     :deleteUrl="'delete-post'"
+                    :first="true"
                 />
                 
             </div>

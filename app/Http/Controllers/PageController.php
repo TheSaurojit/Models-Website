@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Celebrity;
 use App\Models\FirstPost;
 use App\Models\Posts;
 use Illuminate\Http\Request;
@@ -61,5 +62,18 @@ class PageController extends Controller
         $posts = Posts::where('category_id', $catExist->id)->latest()->get();
 
         return view('pages.category', compact('category', 'posts'));
+    }
+
+    public function allCelebrities()
+    {  
+        return view('pages.models') ;
+    }
+
+    public function celebProfile(string $name)
+    { 
+        $celebrity = Celebrity::where('name',$name)->with(['posts'])->firstOrFail() ; 
+
+
+        return view('pages.profile',compact('celebrity')) ;
     }
 }

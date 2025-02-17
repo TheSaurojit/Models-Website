@@ -11,7 +11,7 @@ class component2 extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(public $name , public $bio  , public $image , public $url)
     {
         //
     }

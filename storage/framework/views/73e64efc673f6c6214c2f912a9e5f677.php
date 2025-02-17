@@ -23,7 +23,7 @@
                 
                 <?php if (isset($component)) { $__componentOriginal781089cd478f3e09d520a65f160df974 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal781089cd478f3e09d520a65f160df974 = $attributes; } ?>
-<?php $component = App\View\Components\Admin\Table::resolve(['headers' => ['Title' ,'Thumbnail'],'columns' => ['title'],'arrayData' => $posts,'editUrl' => 'update-post','deleteUrl' => 'delete-post'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = App\View\Components\Admin\Table::resolve(['headers' => ['Title' ,'Thumbnail'],'columns' => ['title'],'arrayData' => $posts,'editUrl' => 'update-post','deleteUrl' => 'delete-post','first' => true] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('admin.table'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>

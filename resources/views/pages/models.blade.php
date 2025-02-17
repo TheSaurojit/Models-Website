@@ -17,12 +17,26 @@
    
     <div>
         <div class="min-h-screen grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-28 p-4 md:ml-5">
-            <x-component2 />
-            <x-component2 />
-            <x-component2 />
-            <x-component2 />
-            <x-component2 />
-            <x-component2 />
+
+                @foreach ( $allCelebrity as $model )
+
+                @php
+
+                    $name = $model["name"] ;
+                    $bio = $model["bio"] ;
+                    $image = $model["image-1"] ;
+                    $url = route('profile',['name'=>$name]) ;
+
+
+                @endphp
+
+                    <x-component2 :name="$name" :bio="$bio" :image="$image" :url="$url" />
+                    
+                @endforeach
+        
+        </div>
+
+
     </div>
 
     @include('components.layouts.footer')

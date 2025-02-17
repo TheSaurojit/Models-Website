@@ -29,11 +29,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'pages.home');
 Route::view('/profile', 'pages.profile');
-Route::view('/blogs', 'pages.blogs');
-Route::view('/blog', 'pages.blogfull');
+Route::view('/blog', 'pages.blogs');
+Route::view('/blogs', 'pages.blogfull');
 
 Route::view('/search', 'pages.search');
-Route::view('/models', 'pages.models');
+
+
+Route::get('/models', [PageController::class, 'allCelebrities'])->name('models');
+Route::get('/profile/{name}', [PageController::class, 'celebProfile'])->name('profile');
+
+
 
 Route::get('/blog/{slug}',fn()=>"hell")->name('blog') ;
 
@@ -74,7 +79,7 @@ Route::prefix('auth')->group(function () {
         Route::post('/image/remove', 'imageRemove')->name('imageRemove') ;
 
         Route::get('/make-first-post/{id}' , 'makeFirstPost')->name('first_post') ;
-        Route::get('/make-second-post/{id}' , 'makeSecondPost')->name('second_post') ;
+        // Route::get('/make-second-post/{id}' , 'makeSecondPost')->name('second_post') ;
 
 
         Route::get('/create-post','createView')->name('create-post');

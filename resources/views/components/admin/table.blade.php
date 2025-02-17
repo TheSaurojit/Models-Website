@@ -27,6 +27,11 @@
 
                             <th>Action</th>
 
+                            @if ($first)
+
+                            <th>First Post</th>
+                            
+                            @endif
 
 
                         </tr>
@@ -51,6 +56,18 @@
                                 </td>
                                     
                                 @endif
+
+                                @if ($first)
+
+                                <td>
+
+                                    <a href="{{ route('first_post' ,["id" => $row["id"]] ) }}" class="btn btn-success">Make First Post</a>
+
+
+                                </td>
+                                
+                                @endif
+    
 
                                 <td>
 
