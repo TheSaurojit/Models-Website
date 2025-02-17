@@ -6,10 +6,10 @@ use App\Http\Controllers\CelebrityController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
+use App\Models\Author;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 
 
 // Route::get('/', function () {
@@ -24,12 +24,6 @@ use Illuminate\Support\Facades\Route;
 //         'password' => $hashed 
 //     ]);
 
-// $2y$10$hgehOwMjsBw4sCawp7WWBekvS.ZS54/BwZwyWnl1KK3gAmy8wkz3S
-
-
-
-// blue $2y$10$VasnzOYp0aqI49QY3Z00xO0M4fG.adwSBgufNe8wmYm.W3fI5/sFe
-
 // })->name('admin');
 
 
@@ -37,9 +31,14 @@ Route::view('/', 'pages.home');
 Route::view('/profile', 'pages.profile');
 Route::view('/blogs', 'pages.blogs');
 Route::view('/blog', 'pages.blogfull');
+
 Route::view('/search', 'pages.search');
-Route::view('/about', 'pages.about');
 Route::view('/models', 'pages.models');
+
+Route::get('/blog/{slug}',fn()=>"hell")->name('blog') ;
+
+
+Route::view('/about', 'pages.about');
 Route::view('/contact', 'pages.contact');
 Route::view('/legal', 'pages.legal');
 Route::view('/privacy', 'pages.privacy');
@@ -59,7 +58,7 @@ Route::prefix('auth')->group(function () {
 
     Route::get('/', function () {
 
-         return view('admin.dashboard');
+         return view('admin.home');
     
     })->name('admin.index');
 
@@ -78,13 +77,12 @@ Route::prefix('auth')->group(function () {
         Route::get('/make-second-post/{id}' , 'makeSecondPost')->name('second_post') ;
 
 
-
-        Route::get('/create-post','createEditor')->name('create-post');
-        Route::post('/create-post', 'createPost')->name('create-post');
+        Route::get('/create-post','createView')->name('create-post');
+        Route::post('/create-post', 'create')->name('create-post');
 
     
-        Route::get('/update-post/{id}','updateEditor')->name('update-post');
-        Route::post('/update-post/{id}','updatePost')->name('update-post');
+        Route::get('/update-post/{id}','updateView')->name('update-post');
+        Route::post('/update-post/{id}','update')->name('update-post');
 
     
         Route::get('/delete-post/{id}', 'deletePost')->name('delete-post');
@@ -92,13 +90,20 @@ Route::prefix('auth')->group(function () {
 
 
 
-        Route::get('/trash-posts', 'trashPosts' )->name('trash-posts');
+        Route::get('/all-trash-posts', 'trashPosts' )->name('trash-posts');
+
+        Route::get('/all-delete-trash', 'allDeleteTrashPosts' )->name('all-delete-trash');
+
+        Route::get('/all-delete-posts', 'allDeletePosts' )->name('all-delete-posts');
+
+
+
         Route::get('/delete-trash-posts/{id}', 'deleteTrashPosts' )->name('delete-trash-posts');
         Route::get('/restore-trash-posts/{id}', 'restoreTrashPosts' )->name('restore-trash-posts');
 
 
     
-        Route::get('/all-posts','showPosts')->name('posts');
+        Route::get('/all-posts','allPosts')->name('all-posts');
     
     });
 

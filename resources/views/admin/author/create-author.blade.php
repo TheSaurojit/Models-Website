@@ -22,8 +22,6 @@
 
                         <x-admin.image-component name="image"/>
 
-
-
                         <x-admin.input-field  type="submit" name="submit" />
 
                     </form>

@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Author;
 use App\Models\Category;
+use App\Models\Celebrity;
 use App\Models\Posts;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -19,45 +21,58 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        // $cat = ['UAE' , 'CEO' ,  'Luxury' , 'Start Up' ,'Innovation'] ;
-
-        //  foreach ($cat as $key ) {
-        //      Category::create([
-        //         'category' => $key ,
-        //         'headline' => 1 
-        //     ]) ;
-        //  } 
-
-
-        
-        $title = "  " ;
+        $this->model();
 
         $blog = file_get_contents(__DIR__."/blog.txt");
 
-        $fileName = "/images/thumbnail/Adam-Beachfront-Dubai-Mag.jpg";
+        $imgArr=["/images/gratisography-cyber-kitty-1170x780.jpg", "/images/adam-beachfront-dubai-mag.jpg"] ;
 
-        // DB::table('posts')->update([
-        //     'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam veniam quo sit nemo quia omnis."
-        // ]);
-        
 
-        for ( $i = 0 ; $i < 20 ; $i++)
+        for ( $i = 0 ; $i < 50 ; $i++)
         {
-            $random =  rand(1000 , 9999) ;
+            $random =  rand(10000 , 999999) ;
             $title = "title for post - " . $random ;
+   
+            $fileName =  $imgArr[rand(0,1)];
+
             Posts::create([
-                'category_id' => rand(1,8),
-                'author_id' => 1 ,
                 'trending' => 0 , 
                 'title' => $title ,
-                'slug'  => Str::slug(strtolower($title)),
+                'slug'  => Str::slug($title),
                 'description' => "Description",
                 'keywords' =>"keyyy",
-                'thumbnail' => $fileName,
+                'image_caption' => "imageeeee capppppption" ,
+                'thumbnail' => $fileName ,
                 'blog' => $blog,
+                'celebrity_id' => 1 ,
             ]);
         } 
 
 
     }
+
+
+
+    public function model()
+    {
+        if(!Celebrity::exists()){
+
+            Celebrity::create([
+                        'name' => 'sayan' ,
+                        'bio' => 'biooo' ,
+                        'gender' => "Male" ,
+                        'instagram' => "instaa",
+                        "image-1" => "/images/adam-beachfront-dubai-mag.jpg" ,
+                        "image-2" => "/images/adam-beachfront-dubai-mag.jpg" ,
+                        "image-3" => "/images/adam-beachfront-dubai-mag.jpg" ,
+                        "image-4" => "/images/adam-beachfront-dubai-mag.jpg" ,
+                    ]) ;
+
+                   
+        }  
+    }
+
+
+
+
 }

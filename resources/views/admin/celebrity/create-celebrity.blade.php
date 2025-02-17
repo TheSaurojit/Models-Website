@@ -22,7 +22,14 @@
 
                         <x-admin.select-field name="gender" :options="['Male' ,'Female','Transgender']"/>
 
-                        <x-admin.image-component name="image"/>
+
+                        <x-admin.input-field  type="text" name="instagram" />
+
+
+                        <x-admin.image-component name="image-1"/>
+                        <x-admin.image-component name="image-2"/>
+                        <x-admin.image-component name="image-3"/>
+                        <x-admin.image-component name="image-4"/>
 
 
 

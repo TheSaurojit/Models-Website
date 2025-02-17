@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\FileUploader;
 use App\Models\FirstPost;
 use App\Models\Posts;
 use Carbon\Carbon;
@@ -15,111 +16,55 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    public function sitemap($slug)
-    {
 
-        $url = route('blog' , ['slug'=>$slug])  ;
+    public function allPosts()
+    {
+        $posts = Posts::with('celebrity')->latest()->get();
         
-            $xmlFile = public_path('sitemap.xml');
-
-
-            $dom = new DOMDocument();
-            $dom->preserveWhiteSpace = false;
-            $dom->formatOutput = true; 
-
-
-            if ($dom->load($xmlFile)) {
-                
-                $urlset = $dom->documentElement;
-
-                $newUrl = $dom->createElement('url');
-
-                $loc = $dom->createElement('loc', $url);
-                $newUrl->appendChild($loc);
-
-                $lastmod = $dom->createElement('lastmod', Carbon::now('Asia/Kolkata')->toDateString());
-                $newUrl->appendChild($lastmod);
-
-                $urlset->appendChild($newUrl);
-
-                $dom->save($xmlFile);
-
-            } 
-            else
-            {
-                throw new Error("Unable to load sitemap");
-            }
-
-    }
-
- 
-    public function handleFileUpload($file, $path)
-    {
-        $fileName = $file->getClientOriginalName();
-        $file->move(public_path($path), $fileName);
-
-        return "/$path/" . $fileName;
+        return view('admin.post.all-post', compact('posts'));
     }
 
 
-    public function slug(string $value)
+    public function createView()
     {
-        return Str::slug(strtolower($value));
+
+        return view('admin.post.create-post');
     }
 
-
-
-    public function showPosts()
+    public function create(Request $request)
     {
-        $posts = Posts::with('category')->latest()->get();
-        
- 
-        return view('admin.all_posts', compact('posts'));
-    }
+  
 
-
-    public function createEditor()
-    {
-
-        return view('admin.editor');
-    }
-
-    public function createPost(Request $request)
-    {
-
-        $request->validate([
+        $data = $request->validate([
             'title' => ['required', 'unique:posts,title'],
             'keywords' => ['required'],
+            'description' => ['required'],
+            'image caption' => ['string'],
             'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'blog' => ['required'],
-            'author' => ['required'] ,
-            'category' => ['required'],
-            'trending' => ['required'] ,
+            'model' => ['required'] ,
+            'created' => ['required'] ,
         ]);
 
         try {
 
+            $data['thumbnail'] = FileUploader::uploadFile( $request->file('thumbnail') );
 
-            $thumbnailPath = $this->handleFileUpload($request->file('thumbnail'), 'images/thumbnail');
+            $data['slug'] = $this->slug($request['title']);
 
-            $slug = $this->slug($request['title']) ;
+            $data['image_caption'] = $request['image caption'] ;
 
-            Posts::create([
-                'title' => $request['title'],
-                'category_id' => $request['category'],
-                'slug'  => $slug,
-                'description' => $request['description'],
-                'keywords' => $request['keywords'],
-                'thumbnail' => $thumbnailPath,
-                'blog' => $request['blog'] ,
-                'image_caption' => $request['image_caption']  ,
-                'trending' => $request['trending'] == "true" ? 1 : 0 ,
-                'author_id' => $request['author'] ,
-            ]);
+            $data['celebrity_id'] = $request['model'] ;
 
-            $this->sitemap($slug);
+            $data['created_at'] = $request['created'] ;
 
-            return redirect()->route('posts')->with('success', 'Post Created');
+            Posts::create(
+                $data
+            ) ;
+
+            $this->sitemap($data['slug']);
+
+            return redirect()->route('all-posts')->with('success', 'Post Created');
 
         } catch (\Throwable $th) {
 
@@ -128,73 +73,47 @@ class PostController extends Controller
     }
 
 
-    public function updateEditor(Posts $id)
+    public function updateView(Posts $id)
     {
         $post = $id;
 
-        Session::put('post', $post);
-
-        return view('admin.editor', compact('post'));
+        return view('admin.post.update-post', compact('post'));
     }
 
 
-    public function updatePost(Request $request, string $id)
+    public function update(Request $request, Posts $id)
     {
-        $request->validate([
 
-            'title' => ['required'],
-            'keywords' => ['required'],
-            'blog' => ['required'],
-            'author' => ['required'] ,
-            'category' => ['required'],
-            'trending' => ['required'] ,
-        ]);
+            $data = $request->validate([
+                'title' => ['required'],
+                'keywords' => ['required'],
+                'description' => ['required'],
+                'image caption' => ['string'],
+                'thumbnail' => ['image', 'mimes:jpeg,png,jpg,gif,svg'],
+                'blog' => ['required'],
+                'model' => ['required'] ,
+                'created' => ['required'] ,
+
+            ]);
+
         try {
-     
-                $prevPost = Session::get('post');
 
-                $slug = $this->slug($request->input('title'));
+            $data['thumbnail'] = $request->file('thumbnail') ?  FileUploader::uploadFile( $request->file('thumbnail') ) : $id['thumbnail'] ;
 
-                $updateData = [
-                    'description' => $request->input('description'),
-                    'keywords' => $request->input('keywords'),
-                    'blog' => $request->input('blog') ,
-                    'category_id' => $request->input('category') ,
-                    'trending' => $request->input('trending') == "true" ? 1 : 0 ,
-                    'image_caption' => $request->input('image_caption') ,
-                    'author_id' => $request->input('author') 
-                ];
+            $data['slug'] = $this->slug($request['title']);
 
-                if ($prevPost->slug !== $slug) {
+            $data['image_caption'] = $request['image caption'] ;
 
-                    if (Posts::where('slug', $slug)->exists()) {
-                        Session::forget('post');
-                        return redirect()->back()->withErrors(['title' => 'Title already exists']);
-                    }
+            $data['celebrity_id'] = $request['model'] ;
 
-                    $updateData['title'] = $request->input('title');
-                    $updateData['slug'] = $slug;
-                }
+            $data['created_at'] = $request['created'] ;
 
-                if ($request->hasFile('thumbnail')) {
 
-                    $thumbnailPath = $this->handleFileUpload($request->file('thumbnail'), 'images/thumbnail');
-
-                    $updateData['thumbnail'] = $thumbnailPath;
-                }  
-
-                if ($request->hasFile('author_image')) {
-
-                    $authorImagePath = $this->handleFileUpload($request->file('author_image'), 'images/thumbnail/author');
-
-                    $updateData['author_image'] = $authorImagePath;
-                }
-
-                Posts::where('id', $prevPost->id)->update($updateData);
-
-                Session::forget('post');
-
-                return redirect()->route('posts')->with('success', 'Post Updated');
+            $id->update(
+                $data
+            );
+    
+                return redirect()->route('all-posts')->with('success', 'Post Updated');
 
             } catch (\Throwable $th) {
 
@@ -209,15 +128,15 @@ class PostController extends Controller
     {
         $id->delete();
 
-        return redirect()->route('posts')->with('success', 'Post Moved to Trash');
+        return redirect()->route('all-posts')->with('success', 'Post Moved to Trash');
     }
 
     public function trashPosts()
     {  
         
-        $trashedPosts =  Posts::onlyTrashed()->get() ;
+        $posts =  Posts::onlyTrashed()->get() ;
 
-        return  view('admin.all_trash_posts',compact('trashedPosts')) ;
+        return  view('admin.post.all-trash-post',compact('posts')) ;
     }
 
     public function deleteTrashPosts( $id)
@@ -242,6 +161,22 @@ class PostController extends Controller
     }
 
 
+    public function allDeleteTrashPosts()
+    {  
+        Posts::onlyTrashed()->forceDelete();
+
+        return redirect()->route('all-posts')->with('success', 'Posts Deleted from Trash');
+    }
+
+    public function allDeletePosts()
+    {  
+        Posts::query()->delete();
+
+        return redirect()->route('all-posts')->with('success', 'Posts Deleted');
+    }
+
+
+
     public function makeFirstPost(Posts $id)
     {
         FirstPost::updateOrCreate(
@@ -249,20 +184,7 @@ class PostController extends Controller
             ['post_id' => $id->id] // Update post_id if record exists or create a new one
         );
         
-        return redirect()->route('posts')->with('success', 'Made it  first post');
-
-    }
-
-
-
-    public function makeSecondPost(Posts $id)
-    {
-        FirstPost::updateOrCreate(
-            ['id' => 2], // Match based on id
-            ['post_id' => $id->id] // Update post_id if record exists or create a new one
-        );
-        
-        return redirect()->route('posts')->with('success', 'Made it  second post');
+        return redirect()->route('all-posts')->with('success', 'Made it  first post');
 
     }
 
@@ -303,6 +225,49 @@ class PostController extends Controller
         } else {
             return response()->json(['success' => false, 'message' => 'Image deletion failed.']);
         }
+    }
+
+
+    public function sitemap($slug)
+    {
+
+        $url = route('blog' , ['slug'=>$slug])  ;
+        
+            $xmlFile = public_path('sitemap.xml');
+
+
+            $dom = new DOMDocument();
+            $dom->preserveWhiteSpace = false;
+            $dom->formatOutput = true; 
+
+
+            if ($dom->load($xmlFile)) {
+                
+                $urlset = $dom->documentElement;
+
+                $newUrl = $dom->createElement('url');
+
+                $loc = $dom->createElement('loc', $url);
+                $newUrl->appendChild($loc);
+
+                $lastmod = $dom->createElement('lastmod', Carbon::now('Asia/Kolkata')->toDateString());
+                $newUrl->appendChild($lastmod);
+
+                $urlset->appendChild($newUrl);
+
+                $dom->save($xmlFile);
+
+            } 
+            else
+            {
+                throw new Error("Unable to load sitemap");
+            }
+
+    }
+
+    public function slug(string $value)
+    {
+        return Str::slug(strtolower($value));
     }
 
 

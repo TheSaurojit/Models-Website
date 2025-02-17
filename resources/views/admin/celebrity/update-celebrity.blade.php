@@ -26,7 +26,15 @@
 
                         <x-admin.select-field name="gender" :options="['Male' ,'Female','Transgender']" value="{{ $celebrity['gender'] }}"/>
 
-                        <x-admin.image-component name="image" value="{{ $celebrity['image'] }}"/>
+
+                        <x-admin.input-field  type="text" name="instagram"  value="{{ $celebrity['instagram'] }}"/>
+
+
+                        <x-admin.image-component name="image-1"  value="{{ $celebrity['image-1'] }}" />
+                        <x-admin.image-component name="image-2"  value="{{ $celebrity['image-2'] }}" />
+                        <x-admin.image-component name="image-3"  value="{{ $celebrity['image-3'] }}" />
+                        <x-admin.image-component name="image-4"  value="{{ $celebrity['image-4'] }}" />
+
 
 
 

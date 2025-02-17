@@ -12,17 +12,121 @@
         <div class="w-100">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Update Model</h4>
+                    <h4 class="card-title mb-4">Update Post</h4>
 
                
                     
-                    <form action="<?php echo e(route('update-celebrity',[ "id" => $celebrity["id"] ])); ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?php echo e(route('update-post',[ "id" => $post['id'] ])); ?>" method="POST" enctype="multipart/form-data">
+
+                        <?php if (isset($component)) { $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $attributes; } ?>
+<?php $component = App\View\Components\Admin\InputField::resolve(['type' => 'text','name' => 'title','value' => ''.e($post['title']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('admin.input-field'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\InputField::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494)): ?>
+<?php $attributes = $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494; ?>
+<?php unset($__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494)): ?>
+<?php $component = $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494; ?>
+<?php unset($__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494); ?>
+<?php endif; ?>
+
+                        <?php if (isset($component)) { $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $attributes; } ?>
+<?php $component = App\View\Components\Admin\InputField::resolve(['type' => 'text','name' => 'keywords','value' => ''.e($post['keywords']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('admin.input-field'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\InputField::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494)): ?>
+<?php $attributes = $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494; ?>
+<?php unset($__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494)): ?>
+<?php $component = $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494; ?>
+<?php unset($__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494); ?>
+<?php endif; ?>
+
+                        <?php if (isset($component)) { $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $attributes; } ?>
+<?php $component = App\View\Components\Admin\InputField::resolve(['type' => 'text','name' => 'description','value' => ''.e($post['description']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('admin.input-field'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\InputField::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494)): ?>
+<?php $attributes = $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494; ?>
+<?php unset($__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494)): ?>
+<?php $component = $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494; ?>
+<?php unset($__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494); ?>
+<?php endif; ?>
+
+
+                        <?php
+
+                            $name = "model" ;
+
+                        ?>
+
+                        <div class="my-4">
+                            <label for="<?php echo e($name); ?>" class="form-label"><?php echo e(Str::title($name)); ?></label>
+                            <select class="form-select w-75" id="<?php echo e($name); ?>" name="model" >
+                                <option value="">Select <?php echo e(Str::title($name)); ?></option>
+
+                                <?php $__currentLoopData = $allCelebrity; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $celeb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($celeb["id"]); ?>" <?php echo e($celeb["id"] == $post["celebrity_id"] ? "selected" : ""); ?> ><?php echo e($celeb["name"]); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                
+                            </select>
+                        </div>
 
                         
 
+                        <?php if (isset($component)) { $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e = $attributes; } ?>
+<?php $component = App\View\Components\Admin\ImageComponent::resolve(['name' => 'thumbnail','value' => ''.e($post['thumbnail']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('admin.image-component'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\ImageComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e)): ?>
+<?php $attributes = $__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
+<?php unset($__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e)): ?>
+<?php $component = $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
+<?php unset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
+<?php endif; ?>
+
                         <?php if (isset($component)) { $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $attributes; } ?>
-<?php $component = App\View\Components\Admin\InputField::resolve(['type' => 'text','name' => 'name','value' => ''.e($celebrity['name']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = App\View\Components\Admin\InputField::resolve(['type' => 'text','name' => 'image_caption','value' => ''.e($post['image_caption']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('admin.input-field'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -43,50 +147,7 @@
 
                         <?php if (isset($component)) { $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $attributes; } ?>
-<?php $component = App\View\Components\Admin\InputField::resolve(['type' => 'text','name' => 'bio','value' => ''.e($celebrity['bio']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('admin.input-field'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\InputField::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes([]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494)): ?>
-<?php $attributes = $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494; ?>
-<?php unset($__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494)): ?>
-<?php $component = $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494; ?>
-<?php unset($__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494); ?>
-<?php endif; ?>
-
-                        <?php if (isset($component)) { $__componentOriginal561664b0286d002fd7c31e8b1ae6a7bd = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal561664b0286d002fd7c31e8b1ae6a7bd = $attributes; } ?>
-<?php $component = App\View\Components\Admin\SelectField::resolve(['name' => 'gender','options' => ['Male' ,'Female','Transgender'],'value' => ''.e($celebrity['gender']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('admin.select-field'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\SelectField::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes([]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal561664b0286d002fd7c31e8b1ae6a7bd)): ?>
-<?php $attributes = $__attributesOriginal561664b0286d002fd7c31e8b1ae6a7bd; ?>
-<?php unset($__attributesOriginal561664b0286d002fd7c31e8b1ae6a7bd); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal561664b0286d002fd7c31e8b1ae6a7bd)): ?>
-<?php $component = $__componentOriginal561664b0286d002fd7c31e8b1ae6a7bd; ?>
-<?php unset($__componentOriginal561664b0286d002fd7c31e8b1ae6a7bd); ?>
-<?php endif; ?>
-
-
-                        <?php if (isset($component)) { $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $attributes; } ?>
-<?php $component = App\View\Components\Admin\InputField::resolve(['type' => 'text','name' => 'instagram','value' => ''.e($celebrity['instagram']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = App\View\Components\Admin\InputField::resolve(['type' => 'datetime-local','name' => 'created','value' => ''.e($post['created_at']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('admin.input-field'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -106,89 +167,26 @@
 <?php endif; ?>
 
 
-                        <?php if (isset($component)) { $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e = $attributes; } ?>
-<?php $component = App\View\Components\Admin\ImageComponent::resolve(['name' => 'image-1','value' => ''.e($celebrity['image-1']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('admin.image-component'); ?>
+                        <?php if (isset($component)) { $__componentOriginalb27bb9bb4fbd236cfa3b2ee825f73c4d = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalb27bb9bb4fbd236cfa3b2ee825f73c4d = $attributes; } ?>
+<?php $component = App\View\Components\Admin\TextArea::resolve(['value' => ''.e($post['blog']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('admin.text-area'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\ImageComponent::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\TextArea::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-<?php if (isset($__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e)): ?>
-<?php $attributes = $__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
-<?php unset($__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
+<?php if (isset($__attributesOriginalb27bb9bb4fbd236cfa3b2ee825f73c4d)): ?>
+<?php $attributes = $__attributesOriginalb27bb9bb4fbd236cfa3b2ee825f73c4d; ?>
+<?php unset($__attributesOriginalb27bb9bb4fbd236cfa3b2ee825f73c4d); ?>
 <?php endif; ?>
-<?php if (isset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e)): ?>
-<?php $component = $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
-<?php unset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
+<?php if (isset($__componentOriginalb27bb9bb4fbd236cfa3b2ee825f73c4d)): ?>
+<?php $component = $__componentOriginalb27bb9bb4fbd236cfa3b2ee825f73c4d; ?>
+<?php unset($__componentOriginalb27bb9bb4fbd236cfa3b2ee825f73c4d); ?>
 <?php endif; ?>
-                        <?php if (isset($component)) { $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e = $attributes; } ?>
-<?php $component = App\View\Components\Admin\ImageComponent::resolve(['name' => 'image-2','value' => ''.e($celebrity['image-2']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('admin.image-component'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\ImageComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes([]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e)): ?>
-<?php $attributes = $__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
-<?php unset($__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e)): ?>
-<?php $component = $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
-<?php unset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
-<?php endif; ?>
-                        <?php if (isset($component)) { $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e = $attributes; } ?>
-<?php $component = App\View\Components\Admin\ImageComponent::resolve(['name' => 'image-3','value' => ''.e($celebrity['image-3']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('admin.image-component'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\ImageComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes([]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e)): ?>
-<?php $attributes = $__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
-<?php unset($__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e)): ?>
-<?php $component = $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
-<?php unset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
-<?php endif; ?>
-                        <?php if (isset($component)) { $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e = $attributes; } ?>
-<?php $component = App\View\Components\Admin\ImageComponent::resolve(['name' => 'image-4','value' => ''.e($celebrity['image-4']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('admin.image-component'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\ImageComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes([]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e)): ?>
-<?php $attributes = $__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
-<?php unset($__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e)): ?>
-<?php $component = $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
-<?php unset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
-<?php endif; ?>
-
-
-
 
 
                         <?php if (isset($component)) { $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $component; } ?>
@@ -226,6 +224,11 @@
 
 <?php echo $__env->make('admin.layout.helper.image-script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+
+
+<?php echo $__env->make('admin.layout.helper.ck-editor-script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('admin.layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\DESKTOP\Desktop\Models Laravel\resources\views/admin/celebrity/update-celebrity.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\DESKTOP\Desktop\Models Laravel\resources\views/admin/post/update-post.blade.php ENDPATH**/ ?>

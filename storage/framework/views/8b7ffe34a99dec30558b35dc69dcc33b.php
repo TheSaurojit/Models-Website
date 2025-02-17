@@ -182,4 +182,4 @@ mobileSearchBtn.addEventListener('click', () => {
     mobileMenu.classList.add('hidden');
   }
 });
-</script>
+</script><?php /**PATH C:\Users\DESKTOP\Desktop\Models Laravel\resources\views/components/layouts/header.blade.php ENDPATH**/ ?>

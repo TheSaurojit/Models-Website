@@ -13,6 +13,7 @@
     
     <!-- Upload or Change Button -->
     <?php if($value): ?>
+
         <div id="<?php echo e($name); ?>-preview-container" class="mt-3">
             <img 
                 id="<?php echo e($name); ?>-preview" 
@@ -58,4 +59,5 @@
         </div>
     <?php endif; ?>
 </div>
-<?php /**PATH C:\Users\DESKTOP\Desktop\Models Laravel\resources\views/components/admin/image-component.blade.php ENDPATH**/ ?>
+
+<br> <br><?php /**PATH C:\Users\DESKTOP\Desktop\Models Laravel\resources\views/components/admin/image-component.blade.php ENDPATH**/ ?>

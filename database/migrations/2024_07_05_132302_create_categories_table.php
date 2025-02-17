@@ -20,39 +20,6 @@ return new class extends Migration
             
             // $table->foreignId('parent_id')->nullable()->constrained('categories')->cascadeOnDelete(); // For subcategories
         });
-
-
-       
-
-        // Schema::create('posts', function (Blueprint $table) {
-        //     $table->id();
-
-        //     $table->foreignId('category_id')->constrained()->onDelete('cascade');
-
-        //     $table->foreignId('author_id')->nullable()->constrained()->onDelete('set null');
-
-        //     $table->boolean('trending')->default(0);
-
-        //     $table->text('title');
-
-        //     $table->longText('slug');
-
-        //     $table->longText('blog');
-
-        //     $table->longText('thumbnail');
-
-        //     $table->longText('description')->nullable();
-
-        //     $table->text('image_caption')->nullable();
-
-        //     $table->text('keywords')->nullable();
-
-        //     $table->timestamps();
-
-        //     $table->softDeletes();  // Adds a 'deleted_at' column
-        // });
-
-        
     
     }
 
@@ -63,8 +30,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('categories');
 
-        
-        // Schema::dropIfExists('posts');
 
     }
 };

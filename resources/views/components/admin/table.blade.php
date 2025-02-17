@@ -43,10 +43,11 @@
                                     <td>{{ $row[$column] ?? 'N/A' }}</td>
                                 @endforeach
 
-                                @if ( $row["image"] || $row["thumbnail"] )
+
+                                @if ( $row["image"] || $row["thumbnail"] || $row["image-1"] )
 
                                 <td>
-                                    <img src="{{ $row["image"] ?? $row["thumbnail"] }}" alt="" style="max-width: 120px ; max-height: 120px ">
+                                    <img src="{{ $row["image"] ?? $row["thumbnail"] ?? $row["image-1"] }}" alt="" style="max-width: 120px ; max-height: 120px ">
                                 </td>
                                     
                                 @endif

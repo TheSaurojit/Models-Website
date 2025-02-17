@@ -16,19 +16,23 @@ class CelebrityController extends Controller
 
     public function create(Request $request)
     {
+
      $data =  $request->validate([
             'name' => ['required'] ,
             'bio' => ['required'] ,
             'gender' => ['required'] ,
-            'image' => ['required', 'image']
+            'instagram' => ['string'] ,
+            'image-1' => ['image','required'] ,
+            'image-2' => ['image'] ,
+            'image-3' => ['image'] ,
+            'image-4' => ['image'] ,
            ]) ;
 
-           $file = $request->file('image') ;
+           $data['image-1'] = FileUploader::uploadFile( $request->file('image-1') );
 
-           $celebImagePath= FileUploader::uploadFile($file);
-
-           $data['image'] = $celebImagePath ;
-
+           $data['image-2'] = $request->file('image-2') ?  FileUploader::uploadFile( $request->file('image-2') ) : "" ;
+           $data['image-3'] = $request->file('image-3') ?  FileUploader::uploadFile( $request->file('image-3') ) : "" ;
+           $data['image-4'] = $request->file('image-4') ?  FileUploader::uploadFile( $request->file('image-4') ) : "" ;
 
         try {
 
@@ -60,19 +64,16 @@ class CelebrityController extends Controller
             'name' => ['required'] ,
             'bio' => ['required'] ,
             'gender' => ['required'] ,
-           ]) ; ;
+           ]) ; 
 
         try {
             
-            $file = $request->file('image') ;
-
-            if ($file) {
-
-                $celebImagePath= FileUploader::uploadFile($file);
-
-                $updatedData['image'] = $celebImagePath;
-            }
+            $updatedData['image-1'] = $request->file('image-1') ?  FileUploader::uploadFile( $request->file('image-1') ) : $id['image-1'] ;
+            $updatedData['image-2'] = $request->file('image-2') ?  FileUploader::uploadFile( $request->file('image-2') ) : $id['image-2'] ;
+            $updatedData['image-3'] = $request->file('image-3') ?  FileUploader::uploadFile( $request->file('image-3') ) : $id['image-3'] ;
+            $updatedData['image-4'] = $request->file('image-4') ?  FileUploader::uploadFile( $request->file('image-4') ) : $id['image-4'] ;
         
+            
             $id->update($updatedData);
 
             return redirect()->route('all-celebrity')->with('success', 'Model Updated');

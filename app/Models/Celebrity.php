@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Celebrity extends Model
 {
     use HasFactory;
+    
     protected $guarded=[''];
+
+    public function posts()
+    {
+        return $this->hasMany(Posts::class);
+    }
 
 }

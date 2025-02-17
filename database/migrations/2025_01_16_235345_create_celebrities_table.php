@@ -16,7 +16,15 @@ return new class extends Migration
             $table->text('name')->nullable();
             $table->longText('bio')->nullable();
             $table->enum('gender', ['Male', 'Female' ,'Transgender'])->nullable();
-            $table->longText('image')->nullable();
+
+            $table->longText('image-1')->nullable();
+            $table->longText('image-2')->nullable();
+            $table->longText('image-3')->nullable();
+            $table->longText('image-4')->nullable();
+
+            $table->string('instagram')->nullable();
+
+
             $table->timestamps();
         });
     }

@@ -44,10 +44,11 @@
                                     <td><?php echo e($row[$column] ?? 'N/A'); ?></td>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                                <?php if( $row["image"] || $row["thumbnail"] ): ?>
+
+                                <?php if( $row["image"] || $row["thumbnail"] || $row["image-1"] ): ?>
 
                                 <td>
-                                    <img src="<?php echo e($row["image"] ?? $row["thumbnail"]); ?>" alt="" style="max-width: 120px ; max-height: 120px ">
+                                    <img src="<?php echo e($row["image"] ?? $row["thumbnail"] ?? $row["image-1"]); ?>" alt="" style="max-width: 120px ; max-height: 120px ">
                                 </td>
                                     
                                 <?php endif; ?>

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Author;
 use App\Models\Category;
+use App\Models\Celebrity;
 use App\Models\FirstPost;
 use App\Models\Posts;
 use Illuminate\Support\Facades\View;
@@ -25,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // view()->share('allCategory', Category::with(['posts'])->get());
+
+        view()->share('allCelebrity', Celebrity::with(['posts'])->get());
+
 
         // view()->share('allAuthor', Author::all());
 
@@ -55,56 +59,6 @@ class AppServiceProvider extends ServiceProvider
         //                                                 ->limit(4)
         //                                                 ->get());
 
-        // view()->share('musicPosts', Posts::with('category')->whereHas('category', function ($query) {
-        //                                                     $query->where('category', 'music');
-        //                                                 })
-        //                                                 ->latest()
-        //                                                 ->limit(5)
-        //                                                 ->get());
-                                                    
-        // view()->share('lifestylePosts', Posts::with('category')->whereHas('category', function ($query) {
-        //                                                     $query->where('category', 'lifestyle');
-        //                                                 })
-        //                                                 ->latest()
-        //                                                 ->limit(5)
-        //                                                 ->get());
-
-        // view()->share('fashionPosts', Posts::with('category')->whereHas('category', function ($query) {
-        //                                                     $query->where('category', 'fashion');
-        //                                                 })
-        //                                                 ->latest()
-        //                                                 ->limit(5)
-        //                                                 ->get());
-
-        // view()->share('entertainmentPosts', Posts::with('category')->whereHas('category', function ($query) {
-        //                                                     $query->where('category', 'entertainment');
-        //                                                 })
-        //                                                 ->latest()
-        //                                                 ->limit(5)
-        //                                                 ->get());
-
-                                                        
-
-        // view()->share('royalPosts', Posts::with('category')->whereHas('category', function ($query) {
-        //                                                     $query->where('category', 'royal family');
-        //                                                 })
-        //                                                 ->latest()
-        //                                                 ->limit(5)
-        //                                                 ->get());
-
-        // view()->share('gossipPosts', Posts::with('category')->whereHas('category', function ($query) {
-        //                                                     $query->where('category', 'gossip');
-        //                                                 })
-        //                                                 ->latest()
-        //                                                 ->limit(5)
-        //                                                 ->get());
-
-        // view()->share('tvPosts', Posts::with('category')->whereHas('category', function ($query) {
-        //                                                     $query->where('category', 'tv & movies');
-        //                                                 })
-        //                                                 ->latest()
-        //                                                 ->limit(5)
-        //                                                 ->get());
 
     }
 }

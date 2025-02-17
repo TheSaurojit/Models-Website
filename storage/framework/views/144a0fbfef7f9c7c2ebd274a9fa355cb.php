@@ -151,6 +151,20 @@
                                 </ul>
                             </li>
 
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-receipt"></i>
+                                    <span key="t-celebrity">Post</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?php echo e(route('create-post')); ?>" key="t-invoice-list">Create Post</a></li>
+                                    <li><a href="<?php echo e(route('all-posts')); ?>" key="t-invoice-detail">All Posts</a></li>
+
+                                    <li><a href="<?php echo e(route('trash-posts')); ?>" key="t-invoice-detail">Trash Posts</a></li>
+
+                                </ul>
+                            </li>
+
                          
 
 

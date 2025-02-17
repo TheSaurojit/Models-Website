@@ -1,6 +1,3 @@
-
-
-
 <?php $__env->startSection('body'); ?>
 
 
@@ -78,8 +75,6 @@
 <?php $component = $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
 <?php unset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
 <?php endif; ?>
-
-
 
                         <?php if (isset($component)) { $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $attributes; } ?>

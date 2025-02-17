@@ -13,6 +13,7 @@
     
     <!-- Upload or Change Button -->
     @if ($value)
+
         <div id="{{ $name }}-preview-container" class="mt-3">
             <img 
                 id="{{ $name }}-preview" 
@@ -57,3 +58,5 @@
         </div>
     @endif
 </div>
+
+<br> <br>
