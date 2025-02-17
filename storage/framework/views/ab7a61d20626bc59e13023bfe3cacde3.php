@@ -2,10 +2,9 @@
   <div class="hidden md:block">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center h-20">
-        <!-- Logo -->
         <div class="flex-shrink-0" id="small">
           <a href="/">
-            <img src="/imagess/MODELLING..png" alt="Logo" class="w-36">
+            <img src="/imagess/Models Realm.png" alt="Logo" class="w-36">
           </a>
         </div>
 
@@ -14,9 +13,9 @@
             <div class="bg-[#ecebeb] bg-opacity-14 px-8 py-2">
               <ul class="flex space-x-16">
                 <li><a href="/" class="hover:text-gray-700">Home</a></li>
-                <li><a href="#" class="hover:text-gray-700">Blogs</a></li>
-                <li><a href="#" class="hover:text-gray-700">Models</a></li>
-                <li><a href="#" class="hover:text-gray-700">About Us</a></li>
+                <li><a href="/blogs" class="hover:text-gray-700">Blogs</a></li>
+                <li><a href="/models" class="hover:text-gray-700">Models</a></li>
+                <li><a href="/about" class="hover:text-gray-700">About Us</a></li>
               </ul>
             </div>
           </div>
@@ -38,7 +37,7 @@
             </div>
           </div>
 
-          <a href="#" class="bg-black text-white px-4 py-2 hover:bg-gray-800 transition-colors">
+          <a href="/contact" class="bg-black text-white px-4 py-2 hover:bg-gray-800 transition-colors">
             Contact us
           </a>
         </div>

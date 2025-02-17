@@ -39,7 +39,7 @@
           </div>
           
           <div class="absolute bottom-10 right-8 max-w-md text-right hidden md:block">
-            <p class="text-sm text-gray-800 m-10">
+            <p class="text-sm text-gray-800 m-10 ">
               Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers, security researchers, and ethical hackers.
             </p>
           </div>
@@ -321,7 +321,7 @@
       
       
       <div class="mt-8 flex justify-center items-center">
-        <button class="px-6 py-2 bg-black text-white rounded hover:bg-gray-800">View All →</button>
+        <a href="/models" class="px-6 py-2 bg-black text-white rounded hover:bg-gray-800">View All →</a>
       </div>
   </section>
 

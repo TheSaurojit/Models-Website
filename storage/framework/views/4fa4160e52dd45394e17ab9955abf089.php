@@ -7,17 +7,7 @@
   </head>
   <body>
     <div class="min-h-screen">
-        <header class="bg-white shadow">
-            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between h-16">
-                    <div class="flex">
-                        <div class="flex-shrink-0 flex items-center">
-                            <span class="text-2xl font-bold text-gray-800">ModelBlog</span>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        
 
         <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
             <div class="bg-white shadow rounded-lg">
