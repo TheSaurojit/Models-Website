@@ -143,12 +143,12 @@
                                         
                                     @endphp
 
-                                    <a href="{{ $url }}">
-                                        <div class="swiper-slide flex flex-col items-start">
+<div class="swiper-slide flex flex-col items-start">
+                                            <a href="{{ $url }}">
                                             <img src="{{ $image }}" class="w-72 h-36">  
                                             <h2 class="text-xs font-semibold mt-4">{{ $title }} </h2>
+                                        </a>
                                         </div>
-                                    </a>
 
                                     @endforeach
 

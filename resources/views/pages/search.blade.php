@@ -131,23 +131,131 @@
     </style>
 
     <script>
-        function showSection(section) {
-            document.getElementById('models-section').classList.add('hidden');
-            document.getElementById('blogs-section').classList.add('hidden');
+       document.addEventListener('DOMContentLoaded', function() {
+    showSection('models');
+    
+    const searchInput = document.querySelector('input[placeholder="Search posts, people, or blogs..."]');
+    const modelsSection = document.getElementById('models-section');
+    const blogsSection = document.getElementById('blogs-section');
+    
+    function filterModels(searchValue) {
+        let modelsFound = false;
+        const models = document.querySelectorAll('#models-section > div.bg-white');
+        
+        models.forEach(model => {
+            const modelName = model.querySelector('h3')?.textContent?.toLowerCase() || '';
+            const modelDesc = model.querySelector('p')?.textContent?.toLowerCase() || '';
             
-            document.getElementById(section + '-section').classList.remove('hidden');
+            if (modelName.includes(searchValue) || modelDesc.includes(searchValue)) {
+                model.style.display = 'block';
+                modelsFound = true;
+            } else {
+                model.style.display = 'none';
+            }
+        });
+        
+        showNoResultsMessage('models', modelsFound);
+        return modelsFound;
+    }
+    
+    function filterBlogs(searchValue) {
+        let blogsFound = false;
+        const blogs = document.querySelectorAll('#blogs-section > div.bg-white');
+        
+        blogs.forEach(blog => {
+            const blogTitle = blog.querySelector('h2')?.textContent?.toLowerCase() || '';
+            const blogAuthor = blog.querySelector('.ml-2 h3')?.textContent?.toLowerCase() || '';
+            const blogDesc = blog.querySelector('p.text-gray-600')?.textContent?.toLowerCase() || '';
             
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(button => {
-                if (button.textContent.toLowerCase().includes(section)) {
-                    button.classList.remove('bg-white', 'text-gray-600');
-                    button.classList.add('bg-blue-500', 'text-white');
-                } else if (button.textContent !== 'All' && !button.textContent.toLowerCase().includes(section)) {
-                    button.classList.remove('bg-blue-500', 'text-white');
-                    button.classList.add('bg-white', 'text-gray-600');
-                }
-            });
+            if (blogTitle.includes(searchValue) || blogAuthor.includes(searchValue) || blogDesc.includes(searchValue)) {
+                blog.style.display = 'block';
+                blogsFound = true;
+            } else {
+                blog.style.display = 'none';
+            }
+        });
+        
+        showNoResultsMessage('blogs', blogsFound);
+        return blogsFound;
+    }
+    
+    function showNoResultsMessage(section, itemsFound) {
+        const sectionElement = document.getElementById(`${section}-section`);
+        let noResultsMessage = document.getElementById(`no-results-${section}`);
+        
+        if (!noResultsMessage) {
+            noResultsMessage = document.createElement('div');
+            noResultsMessage.id = `no-results-${section}`;
+            noResultsMessage.className = 'text-center py-8 text-gray-500 w-full col-span-full';
+            noResultsMessage.innerHTML = `
+                <div class="flex flex-col items-center">
+                    <svg class="w-12 h-12 text-gray-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <p class="text-lg font-medium">No ${section} found</p>
+                    <p class="text-sm text-gray-400">Try adjusting your search terms</p>
+                </div>
+            `;
+            sectionElement.appendChild(noResultsMessage);
         }
+        
+        noResultsMessage.style.display = itemsFound ? 'none' : 'block';
+        
+        if (!itemsFound) {
+            sectionElement.classList.add('items-center');
+        } else {
+            sectionElement.classList.remove('items-center');
+        }
+    }
+    
+    function handleSearch() {
+        const searchValue = searchInput.value.trim().toLowerCase();
+        
+        if (searchValue === '') {
+            document.querySelectorAll('#models-section > div.bg-white, #blogs-section > div.bg-white').forEach(item => {
+                item.style.display = 'block';
+            });
+            document.querySelectorAll('[id^="no-results-"]').forEach(msg => msg.style.display = 'none');
+            return;
+        }
+        
+        const activeSection = document.querySelector('#models-section').classList.contains('hidden') ? 'blogs' : 'models';
+        
+        if (activeSection === 'models') {
+            filterModels(searchValue);
+        } else {
+            filterBlogs(searchValue);
+        }
+    }
+    
+    searchInput.addEventListener('input', handleSearch);
+    
+    const sectionButtons = document.querySelectorAll('button[onclick^="showSection"]');
+    sectionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            searchInput.value = '';
+            handleSearch();
+        });
+    });
+});
+
+function showSection(section) {
+    document.getElementById('models-section').classList.add('hidden');
+    document.getElementById('blogs-section').classList.add('hidden');
+    
+    document.getElementById(section + '-section').classList.remove('hidden');
+    
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        if (button.textContent.toLowerCase().includes(section)) {
+            button.classList.remove('bg-white', 'text-gray-600');
+            button.classList.add('bg-blue-500', 'text-white');
+        } else if (button.textContent !== 'All' && !button.textContent.toLowerCase().includes(section)) {
+            button.classList.remove('bg-blue-500', 'text-white');
+            button.classList.add('bg-white', 'text-gray-600');
+        }
+    });
+}
     </script>
   </body>
 </html>

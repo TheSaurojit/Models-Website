@@ -143,12 +143,12 @@
                                         
                                     ?>
 
-                                    <a href="<?php echo e($url); ?>">
-                                        <div class="swiper-slide flex flex-col items-start">
+<div class="swiper-slide flex flex-col items-start">
+                                            <a href="<?php echo e($url); ?>">
                                             <img src="<?php echo e($image); ?>" class="w-72 h-36">  
                                             <h2 class="text-xs font-semibold mt-4"><?php echo e($title); ?> </h2>
+                                        </a>
                                         </div>
-                                    </a>
 
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 

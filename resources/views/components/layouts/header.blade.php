@@ -49,7 +49,7 @@
 
   <div class="md:hidden">
     <div class="px-4 py-1">
-      <div class="flex items-center justify-between mt-[-37px]">
+      <div class="flex items-center justify-between mt-[-34px]">
         <div>
           <a href="/">
             <img src="/imagess/Models Realm.png" alt="Logo" class="w-32">
@@ -57,11 +57,13 @@
         </div>
 
         <div class="flex items-center space-x-4">
-          <button id="mobileSearchBtn" class="p-2">
+          <a href="/search">
+          <button class="p-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
+          </a>
 
           <button id="mobileMenuBtn" class="p-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -71,16 +73,7 @@
         </div>
       </div>
 
-      <div id="mobileSearchBar" class="hidden mt-3">
-        <div class="relative">
-          <input type="text" placeholder="Search..." class="w-full p-2 pl-10 border border-gray-300">
-          <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-        </div>
-      </div>
+      
     </div>
 
     <div id="mobileMenu" class="hidden bg-white">
@@ -98,16 +91,16 @@
 <script>
 document.addEventListener("scroll", function() {
   const navbar = document.getElementById("navbar");
-  const small = document.getElementById("small");
   
   if (window.scrollY > 50) {
-    navbar.classList.add("bg-white", "shadow-md");
-    navbar.classList.remove("bg-transparent");
+    navbar.classList.add("bg-white", "shadow-md", "h-20");
+    navbar.classList.remove("bg-transparent", "h-16");
   } else {
-    navbar.classList.remove("bg-white", "shadow-md");
-    navbar.classList.add("bg-transparent");
+    navbar.classList.remove("bg-white", "shadow-md", "h-12");
+    navbar.classList.add("bg-transparent", "h-16");
   }
 });
+
 
 
 document.getElementById("dropdown").addEventListener("change", function() {
