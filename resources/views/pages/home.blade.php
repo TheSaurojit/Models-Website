@@ -103,12 +103,12 @@
 
     </section>
 
-    <section>
+    <section class="">
         <div class="m-10 ml-auto md:text-right">
             <h1 class="text-[#C3C3C3] ml-5 text-3xl md:text-6xl">Top Models</h1>
         </div>
 
-        <div class="hidden md:flex gap-10 m-10">
+        <div class="hidden md:flex gap-10 m-10 max-w-7xl mx-auto 2xl:ml-52">
 
             @if (isset($allCelebrity[0]))
                 @php
@@ -121,19 +121,20 @@
                 @endphp
 
 
-                <div class="relative">
-                    <a href="{{ $url }}">
+            <div class="relative">
+                 <a href="{{ $url }}">
 
-                    <img src="{{ $image }}" alt="Portrait" class="w-full object-cover" />
-                    <div class="absolute xl:bottom-44 2xl:bottom-56 left-1">
-                        <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
-                            <div class="px-6 py-4">
-                                <h3 class="text-gray-800 font-mono text-lg">{{ $name }}</h3>
-                            </div>
-                        </div>
+                <img src="{{ $image }}" alt="Portrait" class="w-[400px] object-cover" />
+                <div class="absolute xl:bottom-44 2xl:bottom-56 left-1">
+                    <div class="backdrop-blur-md bg-white/30 rounded-lg 2xl:mt-[-150px] mt-[-200px] overflow-hidden">
+                        <div class="px-6 py-4">
+                        <h3 class="text-gray-800 font-mono text-lg">{{ $name }}</h3>
                     </div>
-                    </a>
                 </div>
+            </div>
+            </a>
+            </div>
+
             @endif
 
 
@@ -150,9 +151,9 @@
                 <div class="relative">
                     <a href="{{ $url }}">
 
-                    <img src="{{ $image }}" alt="Portrait" class="w-full object-cover" />
+                    <img src="{{ $image }}" alt="Portrait" class="w-[380px] h-[700px] object-cover" />
                     <div class="absolute bottom-5 2xl:bottom-10 left-1">
-                        <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
+                        <div class="backdrop-blur-md bg-white/30 mt-[-160px] rounded-lg overflow-hidden">
                             <div class="px-6 py-4">
                                 <h3 class="text-gray-800 font-mono text-lg">{{ $name }}</h3>
                             </div>
@@ -175,7 +176,7 @@
 
                 <div class="relative">
                     <a href="{{ $url }}">
-                        <img src="{{ $image }}" alt="Portrait" class="w-full object-cover" />
+                        <img src="{{ $image }}" alt="Portrait" class="w-[400px] h-[800px] object-cover" />
                         <div class="absolute bottom-3 left-1">
                             <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
                                 <div class="px-6 py-4">
