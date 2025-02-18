@@ -103,7 +103,7 @@
 
     </section>
 
-    <section class="">
+    <section class="md:m-10">
         <div class="m-10 ml-auto md:text-right">
             <h1 class="text-[#C3C3C3] ml-5 text-3xl md:text-6xl">Top Models</h1>
         </div>
