@@ -30,8 +30,6 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'pages.home');
 Route::view('/profile', 'pages.profile');
 Route::view('/search', 'pages.search');
-
-
 Route::get('/models', [PageController::class, 'allCelebrities'])->name('models');
 Route::get('/profile/{name}', [PageController::class, 'celebProfile'])->name('profile');
 Route::get('/blog/{slug}',[PageController::class, 'blog'])->name('blog') ;

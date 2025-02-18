@@ -27,6 +27,11 @@
 
                             <th>Action</th>
 
+                            <?php if($first): ?>
+
+                            <th>First Post</th>
+                            
+                            <?php endif; ?>
 
 
                         </tr>
@@ -52,6 +57,18 @@
                                 </td>
                                     
                                 <?php endif; ?>
+
+                                <?php if($first): ?>
+
+                                <td>
+
+                                    <a href="<?php echo e(route('first_post' ,["id" => $row["id"]] )); ?>" class="btn btn-success">Make First Post</a>
+
+
+                                </td>
+                                
+                                <?php endif; ?>
+    
 
                                 <td>
 

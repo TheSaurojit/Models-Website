@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     @vite(['resources/css/app.css', 'resources/css/style.css', 'resources/js/app.js'])
-    <title>Document</title>
+    <title>Profile</title>
 </head>
 <body>
     @include('components.layouts.header')
@@ -33,7 +33,7 @@
                         <div class="max-w-md mt-4 ml-auto">
                             <div class="flex gap-3">
                                 <i class="fa-brands fa-instagram"></i>
-                                <p class="mt-[-4px]">@Aria Forsa</p>
+                                <a href="" class="mt-[-4px]">@Aria Forsa</a>
                             </div>
                       
                         </div>
@@ -169,12 +169,12 @@
                     <div class="max-w-md mt-4 hidden md:block">
                         <div class="flex gap-3">
                             <i class="fa-brands fa-instagram"></i>
-                            <p class="mt-[-4px]">@Aria Forsa</p>
+                            <a href="" class="mt-[-4px]">@Aria Forsa</a>
                         </div>
-                        <div class="flex gap-3 mt-2">
+                        {{-- <div class="flex gap-3 mt-2">
                             <i class="fa-brands fa-facebook"></i>
                             <p class="mt-[-4px]">@Aria Forsa</p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

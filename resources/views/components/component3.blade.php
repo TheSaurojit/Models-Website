@@ -23,6 +23,7 @@
         
         @endphp
         
+        <a href="{{$url}}">
         <div class="bg-[#F4F4F4] w-full md:w-[780px] xl:w-[880px] 2xl:w-[980px] h-64 relative overflow-hidden">
           <div class="flex flex-col md:flex-row h-full">
             <div class="text-sm p-3 flex-1 flex items-center">
@@ -33,6 +34,7 @@
             </div>
           </div>
         </div>
+        </a>
 
       @endif
 
@@ -48,12 +50,15 @@
         
         @endphp
     
+        
         <div class="bg-[#F4F4F4] h-auto md:h-[480px] w-full md:w-96 xl:w-[484px] 2xl:w-[530px] relative overflow-hidden">
           <div class="m-3">
+            <a href="{{$url}}">
             <img src="{{ $image }}" alt="Model" class="w-full object-cover">
             <div class="text-sm mt-4 p-3 flex items-center text-center">
               <p>{{ $title }}</p>
             </div>
+            </a>
           </div>
         </div>
 
@@ -76,7 +81,7 @@
           
           @endphp
 
-
+<a href="{{$url}}">
           <div class="bg-[#F4F4F4] w-full md:w-96 2xl:w-[484px] relative overflow-hidden">
             <div class="m-3">
               <div class="text-sm p-3 flex items-center text-center">
@@ -87,6 +92,7 @@
               </div>
             </div>
           </div>
+</a>
 
         @endif
 
@@ -102,6 +108,7 @@
           
           @endphp
       
+      <a href="{{$url}}">
           <div class="bg-[#F4F4F4] w-full md:w-96 2xl:w-[484px] h-auto md:h-52 relative overflow-hidden">
             <div class="flex flex-col md:flex-row gap-4">
               <div class="w-full md:w-1/2">
@@ -112,7 +119,7 @@
               </div>
             </div>
           </div>
-
+      </a>
         @endif
 
 
@@ -131,7 +138,8 @@
       $url = route('blog',['slug' => $post->slug]) ;
       
       @endphp
-      <div class="bg-[#F4F4F4] w-full md:w-[480px] xl:w-[830px] 2xl:w-[980px] h-64 relative overflow-hidden mt-6 md:mt-[-240px] ml-auto">
+      <a href="{{$url}}">
+      <div class="bg-[#F4F4F4] w-full md:w-[480px] xl:w-[830px] 2xl:w-[980px] h-64 relative overflow-hidden mt-6 md:mt-[-70px] mb-10 ml-auto">
         <div class="flex flex-col md:flex-row h-full">
           <div class="text-sm p-3 flex-1 flex items-center">
             <p class="text-center md:text-left">{{ $title }}</p>
@@ -141,6 +149,7 @@
           </div>
         </div>
       </div>
+    </a>
     @endif
 
 

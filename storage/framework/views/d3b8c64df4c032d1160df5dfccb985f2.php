@@ -38,7 +38,7 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="index.html" class="logo logo-dark">
+                            <a href="/" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="/admin/assets/images/logo.svg" alt="" height="22">
                                 </span>
@@ -47,7 +47,7 @@
                                 </span>
                             </a>
 
-                            <a href="index.html" class="logo logo-light">
+                            <a href="/" class="logo logo-light">
                                 <span class="logo-sm">
                                     <img src="/admin/assets/images/logo-light.svg" alt="" height="22">
                                 </span>
@@ -105,39 +105,15 @@
                             <li class="menu-title" key="t-menu">Menu</li>
 
                             <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <a href="/auth">
                                     <i class="bx bx-home-circle"></i>
                                     <span key="t-dashboards">Dashboards</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="/" key="t-default">Default</a></li>
-                                    <li><a href="dashboard-saas.html" key="t-saas">Saas</a></li>
-                                 
-                                </ul>
+                              
                             </li>
 
 
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="bx bx-receipt"></i>
-                                    <span key="t-category">Category</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo e(route('create-category')); ?>" key="t-invoice-list">Create Category</a></li>
-                                    <li><a href="<?php echo e(route('all-category')); ?>" key="t-invoice-detail">All Categories</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="bx bx-receipt"></i>
-                                    <span key="t-author">Author</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?php echo e(route('create-author')); ?>" key="t-invoice-list">Create Author</a></li>
-                                    <li><a href="<?php echo e(route('all-author')); ?>" key="t-invoice-detail">All Authors</a></li>
-                                </ul>
-                            </li>
+                            
 
 
                             <li>

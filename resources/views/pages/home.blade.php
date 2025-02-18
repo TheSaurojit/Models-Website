@@ -28,16 +28,20 @@
       @endphp
     
 
-      <section class="md:hidden">
-        <div class="h-[450px]">
-          <img src="{{ $image }}" alt="Fashion models" class="mt-20 w-full h-full object-cover" />
+    <section class="md:hidden">
+      <div class="h-[450px]">
+          <a href="{{ $url }}">
+          <img src="{{ $image }}" alt="Fashion models" class="mt-20 z-10 w-full h-full object-cover" />
+          </a>
         </div>
       </section>
 
         <section class="hidden md:block">
         <div class="relative w-full mt-0 md:mt-[80px]">
             <div class="relative h-[800px] overflow-hidden">
-              <img src="{{ $image }}" alt="Fashion models" class="w-full mt-[-50px] p-8 object-cover" />
+              <a href="{{ $url }}">
+              <img src="{{ $image }}" alt="Fashion models" class="w-full mt-[-50px] mb-10 p-8 object-cover" />
+              </a>
               <div class="absolute top-12 left-12 max-w-md">
                 <p class="text-sm text-gray-800 mr-36 hidden md:block">
                   Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers, security researchers, and ethical hackers. It is part of the MetaupSpace network and covers a wide range of knowledge, tips, and tricks related to cybersecurity.
@@ -94,83 +98,93 @@
     </section>
 
     <section>       
-            <div class="m-10 ml-auto md:text-right">
-                <h1 class="text-[#C3C3C3] ml-5 text-3xl md:text-6xl">Top Models</h1>
-            </div>
+      <div class="m-10 ml-auto md:text-right">
+          <h1 class="text-[#C3C3C3] ml-5 text-3xl md:text-6xl">Top Models</h1>
+      </div>
 
 <div class="hidden md:flex gap-10 m-10">
-  @foreach ( $allCelebrity as $model )
-
-    @php
-
-        $name = $model["name"] ;
-        $bio = $model["bio"] ;
-        $image = $model["image-1"] ;
-        $url = route('profile',['name'=>$name]) ;
-
-
-    @endphp
-    <div class="relative">
-        <img src="{{ $image }}" alt="Portrait" class="w-full object-cover" />
-        <div class="absolute xl:bottom-44 2xl:bottom-56 left-1">
-            <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
-                <div class="px-6 py-4">
-                    <h3 class="text-gray-800 font-mono text-lg">{{ $name }}</h3>
-                </div>
-            </div>
+<div class="relative">
+<img src="/imagess/image-6.png" alt="Portrait" class="w-full object-cover" />
+<div class="absolute xl:bottom-44 2xl:bottom-56 left-1">
+    <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
+        <div class="px-6 py-4">
+            <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
+            <p class="text-gray-600 font-mono text-sm">USA</p>
         </div>
     </div>
+</div>
+</div>
 
-  @endforeach
+<div class="relative">
+<img src="/imagess/image-7.png" alt="Portrait" class="w-full object-cover" />
+<div class="absolute bottom-5 2xl:bottom-10 left-1">
+    <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
+        <div class="px-6 py-4">
+            <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
+            <p class="text-gray-600 font-mono text-sm">USA</p>
+        </div>
+    </div>
+</div>
+</div>
 
-  
+<div class="relative">
+<img src="/imagess/image-5.png" alt="Portrait" class="w-full object-cover" />
+<div class="absolute bottom-3 left-1">
+    <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
+        <div class="px-6 py-4">
+            <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
+            <p class="text-gray-600 font-mono text-sm">USA</p>
+        </div>
+    </div>
+</div>
+</div>
 </div>
 
 
 
 <div class="block md:hidden m-5">
-  <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-          <div class="swiper-slide relative">
-              <img src="/imagess/image-6.png" alt="Portrait" class="w-full object-cover h-[560px]" />
-              <div class="absolute bottom-5 left-1">
-                  <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
-                      <div class="px-6 py-4">
-                          <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
-                          <p class="text-gray-600 font-mono text-sm">USA</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
+<div class="swiper mySwiper">
+<div class="swiper-wrapper">
+    <div class="swiper-slide relative">
+        <img src="/imagess/image-6.png" alt="Portrait" class="w-full object-cover h-[560px]" />
+        <div class="absolute bottom-5 left-1">
+            <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
+                <div class="px-6 py-4">
+                    <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
+                    <p class="text-gray-600 font-mono text-sm">USA</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-          <div class="swiper-slide relative">
-              <img src="/imagess/image-7.png" alt="Portrait" class="w-full object-cover h-[560px]" />
-              <div class="absolute bottom-5 left-1">
-                  <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
-                      <div class="px-6 py-4">
-                          <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
-                          <p class="text-gray-600 font-mono text-sm">USA</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
+    <div class="swiper-slide relative">
+        <img src="/imagess/image-7.png" alt="Portrait" class="w-full object-cover h-[560px]" />
+        <div class="absolute bottom-5 left-1">
+            <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
+                <div class="px-6 py-4">
+                    <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
+                    <p class="text-gray-600 font-mono text-sm">USA</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-          <div class="swiper-slide relative">
-              <img src="/imagess/image-5.png" alt="Portrait" class="w-full object-cover h-[560px]" />
-              <div class="absolute bottom-3 left-1">
-                  <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
-                      <div class="px-6 py-4">
-                          <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
-                          <p class="text-gray-600 font-mono text-sm">USA</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="swiper-slide relative">
+        <img src="/imagess/image-5.png" alt="Portrait" class="w-full object-cover h-[560px]" />
+        <div class="absolute bottom-3 left-1">
+            <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
+                <div class="px-6 py-4">
+                    <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
+                    <p class="text-gray-600 font-mono text-sm">USA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </div>
 
-    </section>
+</section>
 
 
     <section class="bg-white">
@@ -274,10 +288,10 @@
 
 
             <div class="md:p-4 rounded flex items-center gap-4">
-              <a href="{{ $url }}">
+              <a href="{{ $url }}" class="flex">
                 <img src="{{ $image }}" alt="Model" class="w-24 h-24 object-cover">
                 <div>
-                  <h2 class="text-lg font-semibold text-gray-800">{{ $name }}</h2>
+                  <h2 class="text-lg font-semibold text-gray-800 ml-6 mt-7">{{ $name }}</h2>
                 </div>
               </a>
             </div>

@@ -12,41 +12,75 @@
     <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
     <title>About Blogs</title>
 </head>
+
+
+      <?php
+
+          $title = $post->title ;
+          $description = $post->description ;
+          $image = $post->thumbnail ;
+          $caption = $post->image_caption ;
+          $url = route('blog',['slug' => $post->slug]) ;
+          
+      ?>
 <body>
     <?php echo $__env->make('components.layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="max-w-7xl mt-20 mx-auto p-6 bg-[#F4F4F4]">
         <div class="mb-8">
             <div class="flex-col md:flex-row gap-10">
                 <div class="w-full max-w-4xl mx-auto text-center">
-                    <img src="/imagess/image-20.png" alt="Model" class="w-full h-full object-cover grayscale">
-                    <p class="mt-2 text-sm text-gray-600">The Modress Price 2025</p>
+                    <img src="<?php echo e($image); ?>" alt="Model" class="w-full h-full object-cover">
+                    <p class="mt-2 text-sm text-gray-600"><?php echo e($caption); ?></p>
                 </div>
                 
                 <div class=" mt-7 text-center">
-                    <h1 class="text-2xl font-semi-bold mb-4">Vulnerability Assessment and Penetration Testing (VAPT):</h1>
+                    <h1 class="text-2xl font-semi-bold mb-4"><?php echo e($title); ?></h1>
 
                     <p class="text-[15px] text-gray-700">
-                        Lorem ipsum dolor sit amet consectetur. Sit felis tellus urcu nisi sit a blandit orci io. Id eu consequat aliquam mass nata quisque sit. Duis nibh ut proin massa aliquam amet sit done elit. Lorem ipsum dolor sit consectetur. Sit felis tellus arcu nisi sit a blandit orci. Id. Id eu consequat aliquam mass nata quisque sit. Duis nibh ut proin massa aliquam amet sit done elit.
+       
+                      <?php echo e($description); ?>
+
                     </p>
                 </div>
             </div>
         </div>
 
         <div>
-            <div class="flex items-center justify-center ">
-                <img src="/imagess/blog.png" alt="Group" class="w-full grayscale">   
-            </div>
+          
             
             <p class="text-lg m-6 text-gray-700">
-                Lorem ipsum dolor sit amet consectetur. Sit felis tellus arcu nisl sit a blandit orci id. Id eu consequat aliquam risus. Ut tortor erat morbi neque quam lacus. Duis nibh ut proin massa aliquam amet sit donec elit.Lorem ipsum dolor sit amet consectetur. Sit felis tellus arcu nisl sit a blandit orci id. Id eu consequat aliquam risus. Ut tortor erat morbi neque quam lacus. Duis nibh ut proin massa aliquam amet sit donec elit.Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. Sit felis tellus arcu nisl sit a blandit orci id. Id eu consequat aliquam risus. Ut tortor erat morbi neque quam lacus. Duis nibh ut proin massa aliquam amet sit donec elit.Lorem ipsum dolor sit amet consectetur. Sit felis tellus arcu nisl sit a blandit orci id. Id eu consequat aliquam risus. Ut tortor erat morbi neque quam lacus. Duis nibh ut proin massa aliquam amet sit donec elit.Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. Sit felis tellus arcu nisl sit a blandit orci id. Id eu consequat aliquam risus. Ut tortor erat morbi neque quam lacus. Duis nibh ut proin massa aliquam amet sit donec elit.Lorem ipsum dolor sit amet consectetur. Sit felis tellus arcu nisl sit a blandit orci id. Id eu consequat aliquam risus. Ut tortor erat morbi neque quam lacus. Duis nibh ut proin massa aliquam amet sit donec elit.Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. Sit felis tellus arcu nisl sit a blandit orci id. Id eu consequat aliquam risus. Ut tortor erat morbi neque quam lacus. Duis nibh ut proin massa aliquam amet sit donec elit.Lorem ipsum dolor sit amet consectetur. Sit felis tellus arcu nisl sit a blandit orci id. Id eu consequat aliquam risus. Ut tortor erat morbi nequ
+              <?php echo $post->blog; ?>
+
             </p>
         </div>
     </div>
 
     <h2 class="text-7xl ml-12 mt-10 text-[#C3C3C3]">More Blogs</h2>
 
-    <?php echo $__env->make('components.layouts.swiper', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <div class="swiper mySwiper p-6 md:p-12">
+      <div class="swiper-wrapper">
 
+        <?php $__currentLoopData = $relatedPosts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+        <?php
+            $title = $post->title ;
+            $image = $post->thumbnail ;
+            $url = route('blog',['slug' => $post->slug]) ;
+            
+        ?>
+  
+          <div class="swiper-slide flex flex-col items-start">
+            <a href="<?php echo e($url); ?>">
+              <img src="<?php echo e($image); ?>" class="w-96 h-96">  
+              <h2 class="text-lg font-semibold mt-4"><?php echo e($title); ?></h2>
+              <p class="text-gray-600"><?php echo e($description); ?></p>
+            </a>
+          </div>
+
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+  
+      </div>
+    </div>
 
     <?php echo $__env->make('components.layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
@@ -54,26 +88,26 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-        var swiper = new Swiper(".mySwiper", {
-  spaceBetween: 30,
-  slidesPerView: 1,
-  breakpoints: {
-    768: { 
-      slidesPerView: 2,
-    },
-    1024: { 
-      slidesPerView: 3.5,
-    }
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+              var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        slidesPerView: 1,
+        breakpoints: {
+          768: { 
+            slidesPerView: 2,
+          },
+          1024: { 
+            slidesPerView: 3.5,
+          }
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
 
     </script>
 </body>

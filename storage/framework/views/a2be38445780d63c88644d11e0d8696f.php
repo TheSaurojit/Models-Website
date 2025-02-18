@@ -19,43 +19,12 @@
         </div>
 
         <div class="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide">
-            <button onclick="showSection('all')" class="px-4 py-2 bg-blue-500 text-white rounded-full text-sm font-medium">All</button>
-            <button onclick="showSection('models')" class="px-4 py-2 bg-white text-gray-600 rounded-full text-sm font-medium border hover:bg-gray-50 hover:text-black">Models</button>
+            
+            <button onclick="showSection('models')" class="px-4 py-2 bg-blue-500 text-white rounded-full text-sm font-medium border  hover:text-black">Models</button>
             <button onclick="showSection('blogs')" class="px-4 py-2 bg-white text-gray-600 rounded-full text-sm font-medium border hover:bg-gray-50 hover:text-black">Blogs</button>
         </div>
 
-        <div id="all-section" class="grid grid-cols-1 gap-4">
-            <div class="flex items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src="/imagess/hero.png" alt="Profile" class="w-12 h-12 rounded-full object-cover">
-                <div class="ml-4 flex-grow">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <h3 class="font-semibold text-gray-900">john_doe</h3>
-                            <p class="text-gray-500 text-sm">Travel Photographer • 12.5k followers</p>
-                        </div>
-                        <button class="px-4 py-1.5 bg-blue-500 text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors">Follow</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div class="flex items-center mb-4">
-                    <img src="/imagess/hero.png" alt="Blog author" class="w-8 h-8 rounded-full object-cover">
-                    <div class="ml-2">
-                        <span class="font-medium text-gray-900">travel_stories</span>
-                        <p class="text-gray-500 text-xs">2 hours ago</p>
-                    </div>
-                </div>
-                <img src="/imagess/hero.png" alt="Blog preview" class="w-full h-56 object-cover rounded-xl mb-3">
-                <h3 class="font-semibold text-gray-900 mb-1">Hidden Gems of Paris</h3>
-                <p class="text-gray-600 text-sm line-clamp-2">Discover the enchanting secrets of Paris that most tourists never see. From hidden cafes to secret gardens...</p>
-                <div class="flex items-center mt-4 text-gray-500 text-sm">
-                    <span class="flex items-center"><i class="far fa-heart mr-1"></i> 2.4k</span>
-                    <span class="flex items-center ml-4"><i class="far fa-comment mr-1"></i> 128</span>
-                    <span class="flex items-center ml-4"><i class="far fa-bookmark mr-1"></i> Save</span>
-                </div>
-            </div>
-        </div>
+        
 
         <div id="models-section" class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
@@ -68,7 +37,6 @@
                     <p class="text-gray-500 text-sm mb-3">Fashion • Los Angeles</p>
                     <div class="flex justify-between text-sm text-gray-500">
                         <span>245K followers</span>
-                        <button class="text-blue-500 font-medium">Follow</button>
                     </div>
                 </div>
             </div>
@@ -83,7 +51,6 @@
                     <p class="text-gray-500 text-sm mb-3">Fitness • Miami</p>
                     <div class="flex justify-between text-sm text-gray-500">
                         <span>182K followers</span>
-                        <button class="text-blue-500 font-medium">Follow</button>
                     </div>
                 </div>
             </div>
@@ -98,7 +65,6 @@
                     <p class="text-gray-500 text-sm mb-3">Fitness • Miami</p>
                     <div class="flex justify-between text-sm text-gray-500">
                         <span>182K followers</span>
-                        <button class="text-blue-500 font-medium">Follow</button>
                     </div>
                 </div>
             </div>
@@ -151,6 +117,9 @@
         </div>
     </div>
 
+    <?php echo $__env->make('components.layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+
     <style>
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
@@ -163,7 +132,6 @@
 
     <script>
         function showSection(section) {
-            document.getElementById('all-section').classList.add('hidden');
             document.getElementById('models-section').classList.add('hidden');
             document.getElementById('blogs-section').classList.add('hidden');
             
