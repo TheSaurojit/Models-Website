@@ -11,10 +11,10 @@
 
         </p>
         <div class="flex justify-between items-center">
-            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
+            <button class="px-4 py-2 bg-blue-600 mx-auto text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
                 Read More
             </button>
-            <span class="text-sm text-gray-500">5 min read</span>
+            
         </div>
     </div>
     </div>

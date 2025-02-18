@@ -29,7 +29,7 @@
         <div class="mb-8">
             <div class="flex-col md:flex-row gap-10">
                 <div class="w-full max-w-4xl mx-auto text-center">
-                    <img src="<?php echo e($image); ?>" alt="Model" class="w-full h-full object-cover grayscale">
+                    <img src="<?php echo e($image); ?>" alt="Model" class="w-full h-full object-cover">
                     <p class="mt-2 text-sm text-gray-600"><?php echo e($caption); ?></p>
                 </div>
                 

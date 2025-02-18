@@ -87,6 +87,16 @@ class PageController extends Controller
         return view('pages.profile',compact('celebrity')) ;
     }
 
+    public function search(Request $request)
+    {
+        return view('pages.search');
+    }
+
+    public function home(Request $request)
+    {
+        return view('pages.home');
+    }
+
 
    
 }

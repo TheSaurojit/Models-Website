@@ -27,9 +27,8 @@ use Illuminate\Support\Facades\Route;
 // })->name('admin');
 
 
-Route::view('/', 'pages.home');
-Route::view('/profile', 'pages.profile');
-Route::view('/search', 'pages.search');
+Route::get('/', [PageController::class , 'home'])->name('home');
+Route::get('/search', [PageController::class , 'search'])->name('search');
 Route::get('/models', [PageController::class, 'allCelebrities'])->name('models');
 Route::get('/profile/{name}', [PageController::class, 'celebProfile'])->name('profile');
 Route::get('/blog/{slug}',[PageController::class, 'blog'])->name('blog') ;
@@ -53,9 +52,9 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/login', [LoginController::class, 'loginForm'])->name('login');
 
 
-Route::prefix('auth')->group(function () {
+// Route::prefix('auth')->group(function () {
 
-// Route::prefix('auth')->middleware('auth')->group(function () {
+Route::prefix('auth')->middleware('auth')->group(function () {
     
 
     Route::get('/', function () {
@@ -67,7 +66,6 @@ Route::prefix('auth')->group(function () {
 
 
     Route::get('/logout',[LoginController::class, 'logout'] )->name('logout');
-
 
 
     Route::controller(PostController::class)->group( function(){

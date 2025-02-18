@@ -8,8 +8,10 @@ use App\Models\Author;
 use App\Models\Category;
 use App\Models\Celebrity;
 use App\Models\Posts;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 
@@ -21,6 +23,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
+        $this->admin();
         $this->model();
 
         $blog = file_get_contents(__DIR__."/blog.txt");
@@ -72,6 +75,17 @@ class DatabaseSeeder extends Seeder
         }  
     }
 
+    public function admin()
+    {
+        if (!User::exists()) {
+
+            User::create([
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('123')
+            ]);
+        }
+    }
 
 
 

@@ -27,93 +27,70 @@
         
 
         <div id="models-section" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src="/imagess/hero.png" alt="Model" class="w-full h-64 object-cover rounded-t-xl">
-                <div class="p-4">
-                    <div class="flex items-center justify-between mb-2">
-                        <h3 class="font-semibold text-gray-900">Emma Wilson</h3>
-                        <span class="text-blue-500"><i class="fas fa-check-circle"></i></span>
-                    </div>
-                    <p class="text-gray-500 text-sm mb-3">Fashion • Los Angeles</p>
-                    <div class="flex justify-between text-sm text-gray-500">
-                        <span>245K followers</span>
-                    </div>
+
+            @foreach ( $allCelebrity as $model )
+
+            @php
+
+                $name = $model["name"] ;
+                $bio = $model["bio"] ;
+                $image = $model["image-1"] ;
+                $url = route('profile',['name'=>$name]) ;
+
+
+            @endphp
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <a href="{{ $url }}">
+
+                        <img src="{{ $image }}" alt="Model" class="w-full h-64 object-cover rounded-t-xl">
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-semibold text-gray-900">{{ $name }}</h3>
+                                <span class="text-blue-500"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            {{-- <p class="text-gray-500 text-sm mb-3">Fashion • Los Angeles</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>245K followers</span>
+                            </div> --}}
+                        </div>
+                    </a>
                 </div>
-            </div>
+
+            @endforeach
         
-            <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src="/imagess/hero.png" alt="Model" class="w-full h-64 object-cover rounded-t-xl">
-                <div class="p-4">
-                    <div class="flex items-center justify-between mb-2">
-                        <h3 class="font-semibold text-gray-900">Alex Rivera</h3>
-                        <span class="text-blue-500"><i class="fas fa-check-circle"></i></span>
-                    </div>
-                    <p class="text-gray-500 text-sm mb-3">Fitness • Miami</p>
-                    <div class="flex justify-between text-sm text-gray-500">
-                        <span>182K followers</span>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src="/imagess/hero.png" alt="Model" class="w-full h-64 object-cover rounded-t-xl">
-                <div class="p-4">
-                    <div class="flex items-center justify-between mb-2">
-                        <h3 class="font-semibold text-gray-900">Alex Rivera</h3>
-                        <span class="text-blue-500"><i class="fas fa-check-circle"></i></span>
-                    </div>
-                    <p class="text-gray-500 text-sm mb-3">Fitness • Miami</p>
-                    <div class="flex justify-between text-sm text-gray-500">
-                        <span>182K followers</span>
-                    </div>
-                </div>
-            </div>
+           
+
+
         </div>
 
         <div id="blogs-section" class="grid grid-cols-1 gap-4 ">
+            @foreach ( $recentPosts as $post )
+
+            @php
+                $title = $post->title ;
+                $description = $post->description ;
+
+                $image = $post->thumbnail ;
+                $url = route('blog',['slug' => $post->slug]) ;
+                
+            @endphp
             <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src="/imagess/hero.png" alt="Blog" class="w-full h-48 object-cover rounded-t-xl">
-                <div class="p-4">
-                    <div class="flex items-center mb-3">
-                        <img src="/imagess/hero.png" alt="Author" class="w-8 h-8 rounded-full">
-                        <div class="ml-2">
-                            <h3 class="font-semibold text-gray-900">The Fashion Diaries</h3>
-                            <p class="text-gray-500 text-xs">By Sarah Johnson • 15 min read</p>
+                <a href="{{ $url }}">
+                    <img src="{{ $image }}" alt="Blog" class="w-full h-48 object-cover rounded-t-xl ">
+                    <div class="p-4">
+                    
+                        <h2 class="text-xl font-bold mb-2">{{ $title }}</h2>
+                        <p class="text-gray-600 text-sm mb-4">{{ $description }}</p>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            
+                            <button class="text-blue-500"><i class="far fa-bookmark"></i></button>
                         </div>
                     </div>
-                    <h2 class="text-xl font-bold mb-2">Summer Fashion Trends 2025</h2>
-                    <p class="text-gray-600 text-sm mb-4">Discover the hottest trends that will dominate the fashion scene this summer...</p>
-                    <div class="flex justify-between text-sm text-gray-500">
-                        <div class="flex items-center space-x-4">
-                            <span><i class="far fa-heart mr-1"></i> 3.2k</span>
-                            <span><i class="far fa-comment mr-1"></i> 245</span>
-                        </div>
-                        <button class="text-blue-500"><i class="far fa-bookmark"></i></button>
-                    </div>
-                </div>
+                </a>
             </div>
 
-            <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src="/imagess/hero.png" alt="Blog" class="w-full h-48 object-cover rounded-t-xl">
-                <div class="p-4">
-                    <div class="flex items-center mb-3">
-                        <img src="/imagess/hero.png" alt="Author" class="w-8 h-8 rounded-full">
-                        <div class="ml-2">
-                            <h3 class="font-semibold text-gray-900">Lifestyle & Wellness</h3>
-                            <p class="text-gray-500 text-xs">By Mike Chen • 8 min read</p>
-                        </div>
-                    </div>
-                    <h2 class="text-xl font-bold mb-2">Mindful Living in the Digital Age</h2>
-                    <p class="text-gray-600 text-sm mb-4">Practical tips for maintaining balance and wellness in our connected world...</p>
-                    <div class="flex justify-between text-sm text-gray-500">
-                        <div class="flex items-center space-x-4">
-                            <span><i class="far fa-heart mr-1"></i> 1.8k</span>
-                            <span><i class="far fa-comment mr-1"></i> 132</span>
-                        </div>
-                        <button class="text-blue-500"><i class="far fa-bookmark"></i></button>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 
