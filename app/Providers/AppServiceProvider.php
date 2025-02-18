@@ -29,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
 
         view()->share('allCelebrity', Celebrity::with(['posts'])->get());
 
+        view()->share('recentPosts', Posts::with('celebrity')->latest()->limit(50)->get());
+
+
 
         // view()->share('allAuthor', Author::all());
 
@@ -37,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
         // ->get());
 
         
-        // view()->share('firstPost',FirstPost::with('post')->find(1)?->post ) ;
+        view()->share('firstPost',FirstPost::with('post')->find(1)?->post ) ;
 
         // view()->share('secondPost',FirstPost::with('post')->find(2)?->post ) ;
 

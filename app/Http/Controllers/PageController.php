@@ -10,59 +10,69 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function home(Request $request)
-    {
-        return view('pages.index');
-    }
+    // public function home(Request $request)
+    // {
+    //     return view('pages.index');
+    // }
 
-    public function search(Request $request)
-    {
-        $search = $request['search'];
+    // public function search(Request $request)
+    // {
+    //     $search = $request['search'];
 
-        if (!$search) {
+    //     if (!$search) {
 
-            $posts = Posts::all();
+    //         $posts = Posts::all();
 
-        } else {
+    //     } else {
 
-            $posts = Posts::where('title', 'like', '%' . $search . '%')
-                ->orWhere('description', 'like', '%' . $search . '%')
-                ->with('category')
-                ->latest()
-                ->get();
-        }
+    //         $posts = Posts::where('title', 'like', '%' . $search . '%')
+    //             ->orWhere('description', 'like', '%' . $search . '%')
+    //             ->with('category')
+    //             ->latest()
+    //             ->get();
+    //     }
 
-        $number = $posts->count();
+    //     $number = $posts->count();
         
 
-        return view('pages.search', compact('posts', 'search' , 'number'));
-    }
+    //     return view('pages.search', compact('posts', 'search' , 'number'));
+    // }
+
+
+       // public function category($category)
+    // {
+
+    //     $category = strtolower(implode(" ", explode('-', $category)));
+
+    //     $catExist = Category::where('category', $category)->firstOrFail();
+
+    //     $posts = Posts::where('category_id', $catExist->id)->latest()->get();
+
+    //     return view('pages.category', compact('category', 'posts'));
+    // }
+
 
     public function blog($slug)
     {
 
-        $post = Posts::where('slug', $slug)->with('category')->firstOrFail();
+        $post = Posts::where('slug', $slug)->with('celebrity')->firstOrFail();
 
-        $categoryName = $post->category->category;
 
-        $categoryId = $post->category->id;
+        $celebrity = $post->celebrity;
 
-        $relatedPosts = Posts::where('category_id', $categoryId)->where('id', '!=', $post->id)->latest()->get();
+        $celebId = $post->celebrity->id ;
 
-        return view('pages.blog', compact('post',  'categoryName', 'relatedPosts'));
+        $relatedPosts = Posts::where('celebrity_id', $celebId)->where('id', '!=', $post->id)->latest()->limit(6)->get();
+
+        return view('pages.blog', compact('post',  'celebrity', 'relatedPosts'));
     }
 
-    public function category($category)
-    {
-
-        $category = strtolower(implode(" ", explode('-', $category)));
-
-        $catExist = Category::where('category', $category)->firstOrFail();
-
-        $posts = Posts::where('category_id', $catExist->id)->latest()->get();
-
-        return view('pages.category', compact('category', 'posts'));
+    public function allBlogs()
+    {  
+        return view('pages.blogs');
     }
+
+ 
 
     public function allCelebrities()
     {  
@@ -76,4 +86,7 @@ class PageController extends Controller
 
         return view('pages.profile',compact('celebrity')) ;
     }
+
+
+   
 }

@@ -11,4 +11,10 @@ class FirstPost extends Model
 
     protected $guarded=[''];
 
+    public function post()
+    {
+        return $this->belongsTo(Posts::class);
+
+    }
+
 }

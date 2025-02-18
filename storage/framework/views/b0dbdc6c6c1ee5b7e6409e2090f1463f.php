@@ -16,43 +16,58 @@
 
   <?php echo $__env->make('components.layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-  <section class="md:hidden">
-    <div class="h-[450px]">
-      <img src="/imagess/hero.png" alt="Fashion models" class="mt-20 w-full h-full object-cover" />
-    </div>
-  </section>
 
-    <section class="hidden md:block">
-    <div class="relative w-full mt-0 md:mt-[80px]">
-        <div class="relative h-[800px] overflow-hidden">
-          <img src="/imagess/hero.png" alt="Fashion models" class="w-full mt-[-50px] p-8 object-cover" />
-          <div class="absolute top-12 left-12 max-w-md">
-            <p class="text-sm text-gray-800 mr-36 hidden md:block">
-              Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers, security researchers, and ethical hackers. It is part of the MetaupSpace network and covers a wide range of knowledge, tips, and tricks related to cybersecurity.
-            </p>
-          </div>
+  <?php if($firstPost): ?>
 
-          <div class="absolute top-4 right-6 max-w-md text-right">
-            <p class="text-sm text-gray-800 m-10">
-                Insider HackZ
-            </p>
-          </div>
-          
-          <div class="absolute bottom-10 right-8 max-w-md text-right hidden md:block">
-            <p class="text-sm text-gray-800 m-10">
-              Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers, security researchers, and ethical hackers.
-            </p>
-          </div>
+      <?php
+      $post = $firstPost ;
+      $title = $post->title ;
+      $image = $post->thumbnail ;
+      $url = route('blog',['slug' => $post->slug]) ;
+      
+      ?>
+    
 
-          <div class="absolute bottom-10 left-5 max-w-md text-right hidden md:block">
-            <p class="text-sm text-gray-800 m-10">
-                Insider HackZ is an online resource that
-            </p>
-          </div>
-
+      <section class="md:hidden">
+        <div class="h-[450px]">
+          <img src="<?php echo e($image); ?>" alt="Fashion models" class="mt-20 w-full h-full object-cover" />
         </div>
-      </div>
-    </section>
+      </section>
+
+        <section class="hidden md:block">
+        <div class="relative w-full mt-0 md:mt-[80px]">
+            <div class="relative h-[800px] overflow-hidden">
+              <img src="<?php echo e($image); ?>" alt="Fashion models" class="w-full mt-[-50px] p-8 object-cover" />
+              <div class="absolute top-12 left-12 max-w-md">
+                <p class="text-sm text-gray-800 mr-36 hidden md:block">
+                  Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers, security researchers, and ethical hackers. It is part of the MetaupSpace network and covers a wide range of knowledge, tips, and tricks related to cybersecurity.
+                </p>
+              </div>
+
+              <div class="absolute top-4 right-6 max-w-md text-right">
+                <p class="text-sm text-gray-800 m-10">
+                    Insider HackZ
+                </p>
+              </div>
+              
+              <div class="absolute bottom-10 right-8 max-w-md text-right hidden md:block">
+                <p class="text-sm text-gray-800 m-10 ">
+                  Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers, security researchers, and ethical hackers.
+                </p>
+              </div>
+
+              <div class="absolute bottom-10 left-5 max-w-md text-right hidden md:block">
+                <p class="text-sm text-gray-800 m-10">
+                    Insider HackZ is an online resource that
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+    <?php endif; ?>
+  
 
 
 
@@ -75,6 +90,7 @@
         </div>
 
         <?php echo $__env->make('components.layouts.swiper', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
     </section>
 
     <section>       
@@ -83,41 +99,31 @@
             </div>
 
 <div class="hidden md:flex gap-10 m-10">
-  <div class="relative">
-      <img src="/imagess/image-6.png" alt="Portrait" class="w-full object-cover" />
-      <div class="absolute xl:bottom-44 2xl:bottom-56 left-1">
-          <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
-              <div class="px-6 py-4">
-                  <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
-                  <p class="text-gray-600 font-mono text-sm">USA</p>
-              </div>
-          </div>
-      </div>
-  </div>
+  <?php $__currentLoopData = $allCelebrity; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $model): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-  <div class="relative">
-      <img src="/imagess/image-7.png" alt="Portrait" class="w-full object-cover" />
-      <div class="absolute bottom-5 2xl:bottom-10 left-1">
-          <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
-              <div class="px-6 py-4">
-                  <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
-                  <p class="text-gray-600 font-mono text-sm">USA</p>
-              </div>
-          </div>
-      </div>
-  </div>
+    <?php
 
-  <div class="relative">
-      <img src="/imagess/image-5.png" alt="Portrait" class="w-full object-cover" />
-      <div class="absolute bottom-3 left-1">
-          <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
-              <div class="px-6 py-4">
-                  <h3 class="text-gray-800 font-mono text-lg">Darlene Robertson</h3>
-                  <p class="text-gray-600 font-mono text-sm">USA</p>
-              </div>
-          </div>
-      </div>
-  </div>
+        $name = $model["name"] ;
+        $bio = $model["bio"] ;
+        $image = $model["image-1"] ;
+        $url = route('profile',['name'=>$name]) ;
+
+
+    ?>
+    <div class="relative">
+        <img src="<?php echo e($image); ?>" alt="Portrait" class="w-full object-cover" />
+        <div class="absolute xl:bottom-44 2xl:bottom-56 left-1">
+            <div class="backdrop-blur-md bg-white/30 rounded-lg overflow-hidden">
+                <div class="px-6 py-4">
+                    <h3 class="text-gray-800 font-mono text-lg"><?php echo e($name); ?></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+  
 </div>
 
 
@@ -253,75 +259,39 @@
 
       <div class="flex justify-center">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div class="md:p-4 rounded flex items-center gap-4">
-            <img src="/imagess/image-12.png" alt="Model" class="w-24 h-24 object-cover">
-            <div>
-              <h2 class="text-lg font-semibold text-gray-800">Darlene Robertson</h2>
-              <p class="text-sm text-gray-500">USA</p>
+
+          <?php $__currentLoopData = $allCelebrity; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $model): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+            <?php
+
+                $name = $model["name"] ;
+                $bio = $model["bio"] ;
+                $image = $model["image-1"] ;
+                $url = route('profile',['name'=>$name]) ;
+
+
+            ?>
+
+
+            <div class="md:p-4 rounded flex items-center gap-4">
+              <a href="<?php echo e($url); ?>">
+                <img src="<?php echo e($image); ?>" alt="Model" class="w-24 h-24 object-cover">
+                <div>
+                  <h2 class="text-lg font-semibold text-gray-800"><?php echo e($name); ?></h2>
+                </div>
+              </a>
             </div>
-          </div>
-      
-          <div class="md:p-4 rounded flex items-center gap-4">
-            <img src="/imagess/image-13.png" alt="Model" class="w-24 h-24 object-cover">
-            <div>
-              <h2 class="text-lg font-semibold text-gray-800">Darlene Robertson</h2>
-              <p class="text-sm text-gray-500">USA</p>
-            </div>
-          </div>
-      
-          <div class="md:p-4 rounded flex items-center gap-4">
-            <img src="/imagess/image-14.png" alt="Model" class="w-24 h-24 object-cover">
-            <div>
-              <h2 class="text-lg font-semibold text-gray-800">Darlene Robertson</h2>
-              <p class="text-sm text-gray-500">USA</p>
-            </div>
-          </div>
-      
-          <div class="md:p-4 rounded flex items-center gap-4">
-            <img src="/imagess/image-15.png" alt="Model" class="w-24 h-24 object-cover">
-            <div>
-              <h2 class="text-lg font-semibold text-gray-800">Darlene Robertson</h2>
-              <p class="text-sm text-gray-500">USA</p>
-            </div>
-          </div>
-      
-          <div class="md:p-4 rounded flex items-center gap-4">
-            <img src="/imagess/image-16.png" alt="Model" class="w-24 h-24 object-cover">
-            <div>
-              <h2 class="text-lg font-semibold text-gray-800">Darlene Robertson</h2>
-              <p class="text-sm text-gray-500">USA</p>
-            </div>
-          </div>
-      
-          <div class="md:p-4 rounded flex items-center gap-4">
-            <img src="/imagess/image-17.png" alt="Model" class="w-24 h-24 object-cover">
-            <div>
-              <h2 class="text-lg font-semibold text-gray-800">Darlene Robertson</h2>
-              <p class="text-sm text-gray-500">USA</p>
-            </div>
-          </div>
-      
-          <div class="md:p-4 rounded flex items-center gap-4">
-            <img src="/imagess/image-18.png" alt="Model" class="w-24 h-24 object-cover">
-            <div>
-              <h2 class="text-lg font-semibold text-gray-800">Darlene Robertson</h2>
-              <p class="text-sm text-gray-500">USA</p>
-            </div>
-          </div>
-      
-          <div class="md:p-4 rounded flex items-center gap-4">
-            <img src="/imagess/image-19.png" alt="Model" class="w-24 h-24 object-cover">
-            <div>
-              <h2 class="text-lg font-semibold text-gray-800">Darlene Robertson</h2>
-              <p class="text-sm text-gray-500">USA</p>
-            </div>
-          </div>
+
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+     
+
+
         </div>
       </div>
       
       
       <div class="mt-8 flex justify-center items-center">
-        <button class="px-6 py-2 bg-black text-white rounded hover:bg-gray-800">View All →</button>
+        <a href="<?php echo e(route('models')); ?>" class="px-6 py-2 bg-black text-white rounded hover:bg-gray-800">View All →</a>
       </div>
   </section>
 
@@ -337,9 +307,13 @@
     </div>
       </div>
     </div>
-    <?php if (isset($component)) { $__componentOriginalde91f81781046b39a47715c7fef7edfc = $component; } ?>
+
+
+            <?php $__currentLoopData = $recentPosts->slice(0,30)->chunk(5); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $posts): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+            <?php if (isset($component)) { $__componentOriginalde91f81781046b39a47715c7fef7edfc = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalde91f81781046b39a47715c7fef7edfc = $attributes; } ?>
-<?php $component = App\View\Components\Component3::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = App\View\Components\Component3::resolve(['posts' => $posts->values()] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('component3'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -357,6 +331,9 @@
 <?php $component = $__componentOriginalde91f81781046b39a47715c7fef7edfc; ?>
 <?php unset($__componentOriginalde91f81781046b39a47715c7fef7edfc); ?>
 <?php endif; ?>
+            
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
   </section>
 
   
@@ -369,26 +346,26 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-        var swiper = new Swiper(".mySwiper", {
-  spaceBetween: 30,
-  slidesPerView: 1, 
-  breakpoints: {
-    768: { 
-      slidesPerView: 2,
-    },
-    1024: { 
-      slidesPerView: 3.5,
-    }
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+                  var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            slidesPerView: 1, 
+            breakpoints: {
+              768: { 
+                slidesPerView: 2,
+              },
+              1024: { 
+                slidesPerView: 3.5,
+              }
+            },
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
 
     </script>
       

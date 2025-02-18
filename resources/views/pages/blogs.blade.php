@@ -15,8 +15,14 @@
 
     <section class="m-10 container mx-auto">
         <div class="m-4 md:m-0">
-        <x-component3 />
-        <x-component3 />
+
+            @foreach ( $recentPosts->slice(0,30)->chunk(5) as $posts )
+
+            <x-component3  :posts="$posts->values()"/>
+            
+            @endforeach
+
+
         </div>
     </section>
 </body>

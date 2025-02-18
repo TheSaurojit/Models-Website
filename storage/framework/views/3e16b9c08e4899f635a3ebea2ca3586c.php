@@ -26,7 +26,7 @@
     
         <div class="flex justify-center items-center w-full">
           <a href="">
-            <img src="/imagess/mc.png" class="w-40">
+            <img src="/imagess/models_realm.png" class="w-40">
           </a>
         </div>
     
@@ -55,7 +55,7 @@
     </footer>
 
     
-    <footer class="bg-black text-white h-[340px] w-full flex flex-col">
+    <footer class="bg-black text-white h-[440px] w-full flex flex-col">
       <!-- Top Section -->
       <div class="flex justify-between px-10 py-6 mt-24">
         <!-- Left Side (Social Media Icons) -->
@@ -74,10 +74,9 @@
           </a>
         </div>
     
-        <!-- Center Section (Logo or Main Branding) -->
         <div class="flex justify-center items-center">
           <a href="#" class="w-56 pl-10">
-            <img src="/imagess/mc.png" alt="Main Logo" class="w-full ml-[2px] 2xl:ml-[-170px] 3xl:ml-[-220px]">
+            <img src="/imagess/models_realm.png" alt="Main Logo" class="w-full ml-[2px] 2xl:ml-[-170px] 3xl:ml-[-220px]">
           </a>
 
           <p class="mt-4 max-w-xl text-sm pl-52 text-right">

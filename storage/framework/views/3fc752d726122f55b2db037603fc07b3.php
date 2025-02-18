@@ -9,12 +9,12 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 />
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
     <title>About Blogs</title>
 </head>
 
 
-      @php
+      <?php
 
           $title = $post->title ;
           $description = $post->description ;
@@ -22,23 +22,24 @@
           $caption = $post->image_caption ;
           $url = route('blog',['slug' => $post->slug]) ;
           
-      @endphp
+      ?>
 <body>
-    @include('components.layouts.header')
+    <?php echo $__env->make('components.layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="max-w-7xl mt-20 mx-auto p-6 bg-[#F4F4F4]">
         <div class="mb-8">
             <div class="flex-col md:flex-row gap-10">
                 <div class="w-full max-w-4xl mx-auto text-center">
-                    <img src="{{ $image }}" alt="Model" class="w-full h-full object-cover grayscale">
-                    <p class="mt-2 text-sm text-gray-600">{{ $caption }}</p>
+                    <img src="<?php echo e($image); ?>" alt="Model" class="w-full h-full object-cover grayscale">
+                    <p class="mt-2 text-sm text-gray-600"><?php echo e($caption); ?></p>
                 </div>
                 
                 <div class=" mt-7 text-center">
-                    <h1 class="text-2xl font-semi-bold mb-4">{{ $title }}</h1>
+                    <h1 class="text-2xl font-semi-bold mb-4"><?php echo e($title); ?></h1>
 
                     <p class="text-[15px] text-gray-700">
        
-                      {{ $description }}
+                      <?php echo e($description); ?>
+
                     </p>
                 </div>
             </div>
@@ -48,7 +49,8 @@
           
             
             <p class="text-lg m-6 text-gray-700">
-              {!! $post->blog !!}
+              <?php echo $post->blog; ?>
+
             </p>
         </div>
     </div>
@@ -58,29 +60,29 @@
     <div class="swiper mySwiper p-6 md:p-12">
       <div class="swiper-wrapper">
 
-        @foreach ( $relatedPosts as $post )
+        <?php $__currentLoopData = $relatedPosts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-        @php
+        <?php
             $title = $post->title ;
             $image = $post->thumbnail ;
             $url = route('blog',['slug' => $post->slug]) ;
             
-        @endphp
+        ?>
   
           <div class="swiper-slide flex flex-col items-start">
-            <a href="{{ $url }}">
-              <img src="{{ $image }}" class="w-96 h-96">  
-              <h2 class="text-lg font-semibold mt-4">{{ $title }}</h2>
-              <p class="text-gray-600">{{ $description }}</p>
+            <a href="<?php echo e($url); ?>">
+              <img src="<?php echo e($image); ?>" class="w-96 h-96">  
+              <h2 class="text-lg font-semibold mt-4"><?php echo e($title); ?></h2>
+              <p class="text-gray-600"><?php echo e($description); ?></p>
             </a>
           </div>
 
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   
       </div>
     </div>
 
-    @include('components.layouts.footer')
+    <?php echo $__env->make('components.layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -109,4 +111,4 @@
 
     </script>
 </body>
-</html>
+</html><?php /**PATH C:\Users\DESKTOP\Desktop\Models Laravel\resources\views/pages/blog.blade.php ENDPATH**/ ?>

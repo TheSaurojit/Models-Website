@@ -38,7 +38,7 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="index.html" class="logo logo-dark">
+                            <a href="/" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="/admin/assets/images/logo.svg" alt="" height="22">
                                 </span>
@@ -47,7 +47,7 @@
                                 </span>
                             </a>
 
-                            <a href="index.html" class="logo logo-light">
+                            <a href="/" class="logo logo-light">
                                 <span class="logo-sm">
                                     <img src="/admin/assets/images/logo-light.svg" alt="" height="22">
                                 </span>
@@ -113,7 +113,7 @@
                             </li>
 
 
-                            <li>
+                            {{-- <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="bx bx-receipt"></i>
                                     <span key="t-category">Category</span>
@@ -133,7 +133,7 @@
                                     <li><a href="{{ route('create-author') }}" key="t-invoice-list">Create Author</a></li>
                                     <li><a href="{{ route('all-author') }}" key="t-invoice-detail">All Authors</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
 
 
                             <li>
