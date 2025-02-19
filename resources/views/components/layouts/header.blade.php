@@ -30,13 +30,13 @@
               </svg>
             </button>
             </a>
-            {{-- <div class="absolute right-0 top-0 h-full">
+            <div class="absolute right-0 top-0 h-full">
               <input type="text" id="searchInput" class="h-full w-0 overflow-hidden bg-white border border-gray-300 outline-none transition-all duration-300" placeholder="Search...">
               <select id="dropdown" class="absolute right-3 top-1/2 -translate-y-1/2 border border-gray-300 bg-white p-1 hidden">
                 <option value="Models">Models</option>
                 <option value="Blogs">Blogs</option>
               </select>
-            </div> --}}
+            </div>
           </div>
 
           <a href="/contact" class="bg-black text-white px-4 py-2 hover:bg-gray-800 transition-colors">
@@ -76,7 +76,7 @@
       
     </div>
 
-    <div id="mobileMenu" class="hidden bg-white">
+    <div id="mobileMenu" class="hidden mt-[-23px] bg-white">
       <div class="border-t mx-auto">
         <a href="/" class="block px-4 py-3 border-b hover:bg-gray-50">Home</a>
         <a href="/blogs" class="block px-4 py-3 border-b hover:bg-gray-50">Blogs</a>
@@ -101,35 +101,28 @@ document.addEventListener("scroll", function() {
   }
 });
 
-
-
-document.getElementById("dropdown").addEventListener("change", function() {
-    document.getElementById("searchInput").value = this.value;
-    document.getElementById("dropdownContainer").classList.add("hidden");
-  });
-
-  const searchButton = document.getElementById('searchButton');
-const searchInput = document.getElementById('searchInput');
-const dropdown = document.getElementById('dropdown');
+  // const searchButton = document.getElementById('searchButton');
+// const searchInput = document.getElementById('searchInput');
+// const dropdown = document.getElementById('dropdown');
 let isSearchOpen = false;
 
-searchButton.addEventListener('click', () => {
-  isSearchOpen = !isSearchOpen;
-  if (isSearchOpen) {
-    searchInput.style.width = '240px';
-    searchInput.style.padding = '0 40px 0 12px';
-    searchInput.focus();
-    dropdown.classList.remove('hidden');
-  } else {
-    searchInput.style.width = '0';
-    searchInput.style.padding = '0';
-    dropdown.classList.add('hidden');
-  }
-});
+// searchButton.addEventListener('click', () => {
+//   isSearchOpen = !isSearchOpen;
+//   if (isSearchOpen) {
+//     searchInput.style.width = '240px';
+//     searchInput.style.padding = '0 40px 0 12px';
+//     searchInput.focus();
+//     dropdown.classList.remove('hidden');
+//   } else {
+//     searchInput.style.width = '0';
+//     searchInput.style.padding = '0';
+//     dropdown.classList.add('hidden');
+//   }
+// });
 
-dropdown.addEventListener('change', function() {
-  searchInput.value = this.value;
-});
+// dropdown.addEventListener('change', function() {
+//   searchInput.value = this.value;
+// });
 
 
 function handleSearch() {
@@ -170,10 +163,10 @@ mobileMenuBtn.addEventListener('click', () => {
   }
 });
 
-mobileSearchBtn.addEventListener('click', () => {
-  mobileSearchBar.classList.toggle('hidden');
-  if (!mobileMenu.classList.contains('hidden')) {
-    mobileMenu.classList.add('hidden');
-  }
-});
+// mobileSearchBtn.addEventListener('click', () => {
+//   mobileSearchBar.classList.toggle('hidden');
+//   if (!mobileMenu.classList.contains('hidden')) {
+//     mobileMenu.classList.add('hidden');
+//   }
+// });
 </script>

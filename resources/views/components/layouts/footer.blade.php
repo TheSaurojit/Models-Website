@@ -97,7 +97,7 @@
 
 
   <section class="md:hidden block">
-      <div class="w-full bg-black h-80">
+      <div class="w-full bg-black h-96">
         <div class="flex justify-center items-center">
           {{-- <a href="#" class="w-5">
             <img src="/imagess/attach_file_add.png" alt="Attachment Icon" class="w-full">
@@ -113,14 +113,14 @@
           </a>
         </div>
 
-        <div class="flex justify-center mt-10 items-center w-full">
-          <a href="">
-            <img src="/imagess/mc.png" class="w-52">
+        <div class="flex justify-center items-center w-full">
+          <a href="absolute">
+            <img src="/imagess/models_realm.png" class="w-40">
           </a>
         </div>
 
 
-        <div class="flex justify-center items-center text-white gap-6 mt-10">
+        <div class="flex justify-center items-center text-white gap-6">
           <a href="">Help & FAQ</a>
           <a href="">Contact us</a>
           <a href="">Legals</a>
