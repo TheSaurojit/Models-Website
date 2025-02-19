@@ -12,20 +12,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-// Route::get('/', function () {
-
-//     $hashed =  bcrypt('123') ;
-
-//     dd($hashed);
-
-// User::create([
-//         'name' => 'admin',
-//         'email' => 'admin@gmail.com',
-//         'password' => $hashed 
-//     ]);
-
-// })->name('admin');
-
 
 Route::get('/', [PageController::class , 'home'])->name('home');
 Route::get('/search', [PageController::class , 'search'])->name('search');
@@ -37,8 +23,6 @@ Route::get('/blogs', [PageController::class, 'allBlogs'])->name('all-blogs');
 
 
 
-
-
 Route::view('/about', 'pages.about');
 Route::view('/contact', 'pages.contact');
 Route::view('/legal', 'pages.legal');
@@ -46,8 +30,12 @@ Route::view('/privacy', 'pages.privacy');
 Route::view('/helpFaq', 'pages.helpFaq');
 
 
-// Route::view('/','admin.home') ;
+// Route::get('/login', function () {
 
+    // User::find(1)->update(['email' => 'harpersAdmin@gmail.com' ,'password' => Hash::make('harpersAdmin@Pass@2025')]);
+    
+    // })->name('admin');
+    
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/login', [LoginController::class, 'loginForm'])->name('login');
 
