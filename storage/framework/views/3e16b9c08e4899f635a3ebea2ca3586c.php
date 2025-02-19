@@ -88,7 +88,7 @@
     
       <div class="text-center">
         <p class="mt-10 text-xs opacity-70">
-          All content Copyright © MODELLING.com, Inc. 2000-2025 or their respective owners where indicated.
+          All Content Copyright © ModelsRealm.com, Inc. 2000-2025 or their respective owners where indicated.
         </p>
       </div>
     </footer>
@@ -97,7 +97,7 @@
 
 
   <section class="md:hidden block">
-      <div class="w-full bg-black h-80">
+      <div class="w-full bg-black h-96">
         <div class="flex justify-center items-center">
           
           <a href="#" class="w-10">
@@ -111,14 +111,14 @@
           </a>
         </div>
 
-        <div class="flex justify-center mt-10 items-center w-full">
-          <a href="">
-            <img src="/imagess/mc.png" class="w-52">
+        <div class="flex justify-center items-center w-full">
+          <a href="/">
+            <img src="/imagess/models_realm.png" class="w-40">
           </a>
         </div>
 
 
-        <div class="flex justify-center items-center text-white gap-6 mt-10">
+        <div class="flex justify-center items-center text-white gap-6">
           <a href="">Help & FAQ</a>
           <a href="">Contact us</a>
           <a href="">Legals</a>
@@ -126,7 +126,9 @@
         </div>
 
         <div class="mt-7 m-5 text-white">
-          <p class="text-center">All content Copyright © MODELLING.com, Inc. 2000-2025 or their respective owners where indicated.</p>
+          <p class="text-center">
+            All content copyright © ModelsRealm.com, Inc. 2000-2025 or their respective owners where indicated.
+          </p>
         </div>
       </div>
   </section><?php /**PATH C:\Users\DESKTOP\Desktop\Models Laravel\resources\views/components/layouts/footer.blade.php ENDPATH**/ ?>
