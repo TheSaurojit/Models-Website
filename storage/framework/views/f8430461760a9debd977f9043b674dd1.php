@@ -88,7 +88,7 @@
     
       <div class="text-center">
         <p class="mt-10 text-xs opacity-70">
-          All content Copyright © MODELLING.com, Inc. 2000-2025 or their respective owners where indicated.
+          All Content Copyright © ModelsRealm.com, Inc. 2000-2025 or their respective owners where indicated.
         </p>
       </div>
     </footer>
@@ -112,7 +112,7 @@
         </div>
 
         <div class="flex justify-center items-center w-full">
-          <a href="absolute">
+          <a href="/">
             <img src="/imagess/models_realm.png" class="w-40">
           </a>
         </div>
@@ -126,7 +126,9 @@
         </div>
 
         <div class="mt-7 m-5 text-white">
-          <p class="text-center">All content Copyright © MODELLING.com, Inc. 2000-2025 or their respective owners where indicated.</p>
+          <p class="text-center">
+            All content copyright © ModelsRealm.com, Inc. 2000-2025 or their respective owners where indicated.
+          </p>
         </div>
       </div>
   </section><?php /**PATH /home/orcas/Desktop/Projects/Models-Website/resources/views/components/layouts/footer.blade.php ENDPATH**/ ?>

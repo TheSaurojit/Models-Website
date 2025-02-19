@@ -1,17 +1,4 @@
-
-      <div class="flex flex-col md:flex-row md:hidden text-center mb-10">
-        <div class="w-full md:w-[500px] text-center md:text-left">
-          <h1 class="text-4xl md:text-6xl font-light mt-12 text-gray-600 mb-5 md:mb-16 text-center mx-auto w-full">
-            Our Blogs
-          </h1>
-          
-          <p>Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers, security researchers, and more.</p>
-        </div>
-      </div>
-  
-
-
-    <div class="flex flex-col md:flex-row gap-6 md:gap-20">
+<div class="flex flex-col md:flex-row gap-6 md:gap-20">
 
      @if (isset($posts[0]) )
 

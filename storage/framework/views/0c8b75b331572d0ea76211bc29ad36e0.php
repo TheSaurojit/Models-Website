@@ -9,8 +9,18 @@
 <body>
     <?php echo $__env->make('components.layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-    <div class="m-16 mt-20 text-gray-400">
-         <h2 class="text-3xl ">Our Blogs</h2>
+    <div class="flex flex-col md:flex-row md:hidden text-center mt-10">
+        <div class="w-full md:w-[500px] text-center md:text-left">
+          <h1 class="text-4xl md:text-6xl font-light mt-12 text-gray-600 mb-5 md:mb-16 text-center mx-auto w-full">
+            Our Blogs
+          </h1>
+          
+          <p>Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers, security researchers, and more.</p>
+        </div>
+    </div>
+
+    <div class="m-16 hidden md:block mt-20 text-gray-400">
+         <h2 class="text-4xl">Our Blogs</h2>
     </div>
 
     <section class="m-10 container mx-auto">

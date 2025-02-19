@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
   </head>
+  <title>About Us</title>
   <body>
 
     <?php echo $__env->make('components.layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
