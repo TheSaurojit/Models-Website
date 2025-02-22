@@ -12,16 +12,13 @@
 
 
     <div class="max-w-4xl mx-auto px-4 py-12 md:py-20">
-        <!-- Hero Section -->
-        <div class="text-center mt-20">
+        <div class="text-center mt-5">
             <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Welcome to Models Realm</h1>
             <p class="text-lg text-gray-600 max-w-2xl mx-auto">Where amazing talent meets groundbreaking opportunities.</p>
         </div>
 
-        <!-- Main Content -->
         <div class="space-y-12 text-gray-700">
-            <!-- About Us Section -->
-            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
                 <h2 class="text-2xl md:text-3xl font-semibold mb-6">Our Story</h2>
                 <p class="text-lg leading-relaxed mb-6">
                     Hey there! We're Models Realm, and we're not your typical talent agency. Think of us as your partners in making it big in the fashion and entertainment world. We know the ins and outs of this industry like the back of our hand, and we're here to help you navigate it with style.
@@ -31,7 +28,6 @@
                 </p>
             </div>
 
-            <!-- Mission Section -->
             <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
                 <h2 class="text-2xl md:text-3xl font-semibold mb-6">What Drives Us</h2>
                 <p class="text-lg leading-relaxed">
@@ -39,7 +35,6 @@
                 </p>
             </div>
 
-            <!-- Services Section -->
             <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
                 <h2 class="text-2xl md:text-3xl font-semibold mb-8">What We Bring to the Table</h2>
                 <div class="grid md:grid-cols-2 gap-8">
@@ -66,7 +61,6 @@
                 </div>
             </div>
 
-            <!-- Why Us Section -->
             <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
                 <h2 class="text-2xl md:text-3xl font-semibold mb-6">Why People Love Working With Us</h2>
                 <p class="text-lg leading-relaxed mb-6">
@@ -77,7 +71,6 @@
                 </p>
             </div>
 
-            <!-- Call to Action -->
             <div class="text-center">
                 <h2 class="text-2xl md:text-3xl font-semibold mb-6">Ready to Start Your Journey?</h2>
                 <button class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-colors">

@@ -78,7 +78,7 @@
 
 
 
-    <section class="mt-12 md:mt-0">
+    <section class="mt-32 md:mt-5">
         <div class="text-center hidden md:block">
             <h2 class="text-[41.12px]">Team of Expert Consultants</h2>
             <p class="text-[14.06px] ml-96 mr-96 mt-5">Insider HackZ is an online resource that serves as a
@@ -103,8 +103,8 @@
 
     </section>
 
-    <section class="md:m-10">
-        <div class="m-10 ml-auto md:text-right">
+    <section class="md:mt-[-40px]">
+        <div class="md:m-10 ml-auto md:text-right">
             <h1 class="text-[#C3C3C3] ml-5 text-3xl md:text-6xl">Top Models</h1>
         </div>
 
@@ -265,7 +265,7 @@
                     <img src="/imagess/Frame69.png" alt="" class="w-full">
                 </div>
 
-                <div class="w-1/4 pt-28 hidden md:block">
+                <div class="w-1/4 md:pt-28 hidden md:block">
                     <h2
                         class="ml-44 writing-mode-vertical whitespace-nowrap transform rotate-90 text-gray-800 text-[41.12px] tracking-wider">
                         Team of Expert Consultants
@@ -281,7 +281,7 @@
     </section>
 
 
-    <section class="m-10">
+    <section class="m-10 mt-[-25px] md:mt-[-40px]">
         <div class="flex flex-col md:flex-row mb-10">
             <h1 class="text-4xl md:text-6xl font-light text-gray-600 mb-4 md:mb-16 text-center md:text-left">
                 All Models
@@ -350,16 +350,17 @@
         </div>
 
 
-        @foreach ($recentPosts->slice(0, 30)->chunk(5) as $posts)
         <div class="flex flex-col md:flex-row md:hidden text-center mt-10 mb-10">
             <div class="w-full md:w-[500px] text-center md:text-left">
-              <h1 class="text-4xl md:text-6xl font-light mt-12 text-gray-600 mb-5 md:mb-16 text-center mx-auto w-full">
+              <h1 class="text-4xl md:text-6xl font-light text-gray-600 mb-5 md:mb-16 text-center mx-auto w-full">
                 Our Blogs
               </h1>
               
               <p>Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers, security researchers, and more.</p>
             </div>
         </div>
+
+        @foreach ($recentPosts->slice(0, 15)->chunk(5) as $posts)
             <x-component3 :posts="$posts->values()" />
         @endforeach
 

@@ -55,9 +55,9 @@
     </footer>
 
     
-    <footer class="bg-black text-white h-[440px] w-full flex flex-col">
+    <footer class="bg-black text-white h-[340px] w-full flex flex-col">
       <!-- Top Section -->
-      <div class="flex justify-between px-10 py-6 mt-24">
+      <div class="flex justify-between mt-7 px-10 py-6 ">
         <!-- Left Side (Social Media Icons) -->
         <div class="flex gap-6 items-center">
           <a href="#" class="w-5">

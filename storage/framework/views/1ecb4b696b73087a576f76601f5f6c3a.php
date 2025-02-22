@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/css/style.css', 'resources/js/app.js']); ?>
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
     <title>Profile</title>
 </head>
 <body>
@@ -53,19 +53,19 @@
                     <div class="hidden md:flex space-x-4 md:space-y-4 flex-row md:flex-col md:mt-14">
                         <img src="<?php echo e($celebrity['image-1']); ?>" 
                              alt="Model thumbnail 1" 
-                             class="w-[250px] md:ml-4 h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
+                             class="w-[150px] md:ml-4 h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
                              onclick="updateMainImage(this.src)">
                         <img src="<?php echo e($celebrity['image-2']); ?>" 
                              alt="Model thumbnail 2" 
-                             class="w-[250px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
+                             class="w-[150px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
                              onclick="updateMainImage(this.src)">
                         <img src="<?php echo e($celebrity['image-3']); ?>" 
                              alt="Model thumbnail 3" 
-                             class="w-[250px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
+                             class="w-[150px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
                              onclick="updateMainImage(this.src)">
                         <img src="<?php echo e($celebrity['image-4']); ?>" 
                              alt="Model thumbnail 4" 
-                             class="w-[250px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
+                             class="w-[150px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
                              onclick="updateMainImage(this.src)">
                     </div>
 
