@@ -103,12 +103,12 @@
                     </div>
                 </div>
 
-                <div class="hidden md:block md:mt-20">
+                <div class="hidden md:block md:mt-20 ml-[-30px]">
                     <div class="w-[620px] h-[540px] flex justify-center items-center overflow-hidden">
                         <img src="<?php echo e($image); ?>" 
                              alt="Main model image" 
                              id="mainImage"
-                             class="w-[620px] h-[540px] object-cover transition-opacity duration-300">
+                             class="w-[600px] h-[530px] object-cover transition-opacity duration-300">
                     </div>
                 </div>
 
@@ -122,7 +122,7 @@
                             <h4><?php echo e($name); ?></h4>
                             <p class="text-[#696A6E]">Model</p>
                         </div>
-                        <div class="md:ml-28">
+                        <div class="md:ml-20">
                             <h4>Gender</h4>
                             <p class="text-[#696A6E]"><?php echo e($gender); ?></p>
                         </div>
@@ -143,7 +143,7 @@
                                         
                                     ?>
 
-<div class="swiper-slide flex flex-col items-start">
+                                    <div class="swiper-slide flex flex-col items-start">
                                             <a href="<?php echo e($url); ?>">
                                             <img src="<?php echo e($image); ?>" class="w-72 h-36">  
                                             <h2 class="text-xs font-semibold mt-4"><?php echo e($title); ?> </h2>
