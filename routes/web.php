@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CelebrityController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
@@ -10,6 +11,7 @@ use App\Models\Author;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -21,6 +23,7 @@ Route::get('/blog/{slug}',[PageController::class, 'blog'])->name('blog') ;
 Route::get('/blogs', [PageController::class, 'allBlogs'])->name('all-blogs');
 
 
+Route::post('/contact-us',[ContactController::class ,'create'])->name('contact.create');
 
 
 Route::view('/about', 'pages.about');
@@ -32,7 +35,7 @@ Route::view('/helpFaq', 'pages.helpFaq');
 
 // Route::get('/login', function () {
 
-    // User::find(1)->update(['email' => 'harpersAdmin@gmail.com' ,'password' => Hash::make('harpersAdmin@Pass@2025')]);
+    // User::find(1)->update(['email' => 'modelsAdmin@gmail.com' ,'password' => Hash::make('modelsAdmin@Pass@2025')]);
     
     // })->name('admin');
     
@@ -147,6 +150,18 @@ Route::prefix('auth')->middleware('auth')->group(function () {
         Route::get('/all-celebrity' ,  'allCelebrity')->name('all-celebrity');
 
     }) ;
+
+
+    Route::controller(ContactController::class)->group( function(){
+       
+        Route::get('/delete-contact/{id}',  'delete')->name('delete-contact');
+
+        Route::get('/view-contact/{id}',  'adminView')->name('view-contact');
+
+        Route::get('/all-contact' ,  'allAdminView')->name('all-contact');
+
+    }) ;
+
 
 
 

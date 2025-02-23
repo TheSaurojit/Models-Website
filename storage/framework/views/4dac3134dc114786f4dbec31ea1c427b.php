@@ -1,4 +1,4 @@
-<div class="swiper mySwiper p-6 md:p-12">
+<div class="swiper mySwiper md:mt-[-50px] p-6 md:p-12">
     <div class="swiper-wrapper">
 
         <?php $__currentLoopData = $allCelebrity; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $model): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

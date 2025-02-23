@@ -1,4 +1,4 @@
-<div class="pt-28 md:hidden gap-5 text-center">
+<div class="md:pt-28 md:hidden gap-5 text-center">
     <h2 class="text-gray-800 text-3xl ">
         Team of Expert Consultants
     </h2>
