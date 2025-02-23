@@ -17,8 +17,8 @@
             <p class="text-lg text-gray-600 max-w-2xl mx-auto">Where amazing talent meets groundbreaking opportunities.</p>
         </div>
 
-        <div class="space-y-12 text-gray-700">
-            <div class="bg-white rounded-2xl p-8 shadow-sm">
+        <div class="space-y-1 text-gray-700">
+            <div class="mt-5">
                 <h2 class="text-2xl md:text-3xl font-semibold mb-6">Our Story</h2>
                 <p class="text-lg leading-relaxed mb-6">
                     Hey there! We're Models Realm, and we're not your typical talent agency. Think of us as your partners in making it big in the fashion and entertainment world. We know the ins and outs of this industry like the back of our hand, and we're here to help you navigate it with style.
@@ -28,15 +28,15 @@
                 </p>
             </div>
 
-            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
-                <h2 class="text-2xl md:text-3xl font-semibold mb-6">What Drives Us</h2>
+            <div class="mt-10">
+                <h2 class="text-2xl md:text-3xl mt-10 font-semibold mb-6">What Drives Us</h2>
                 <p class="text-lg leading-relaxed">
                     We're passionate about telling your unique story. In today's fast-paced world, standing out isn't just about looking good – it's about connecting with people in meaningful ways. That's where we come in. We help you find your voice, build your brand, and create genuine connections with your audience.
                 </p>
             </div>
 
-            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
-                <h2 class="text-2xl md:text-3xl font-semibold mb-8">What We Bring to the Table</h2>
+            <div class="mt-10">
+                <h2 class="text-2xl md:text-3xl font-semibold mb-8 mt-10">What We Bring to the Table</h2>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="space-y-6">
                         <div>
@@ -61,8 +61,8 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
-                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Why People Love Working With Us</h2>
+            <div class="">
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6 mt-10">Why People Love Working With Us</h2>
                 <p class="text-lg leading-relaxed mb-6">
                     Our team isn't just a bunch of industry pros – we're dreamers, doers, and go-getters who love what we do. We combine creative thinking with real-world data to make sure every move we make counts. Plus, we're pretty fun to work with (if we do say so ourselves).
                 </p>
@@ -72,7 +72,7 @@
             </div>
 
             <div class="text-center">
-                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Ready to Start Your Journey?</h2>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6 mt-10">Ready to Start Your Journey?</h2>
                 <button class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-colors">
                     Get in Touch
                 </button>
