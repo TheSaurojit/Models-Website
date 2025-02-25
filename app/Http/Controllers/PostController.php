@@ -39,7 +39,7 @@ class PostController extends Controller
             'title' => ['required', 'unique:posts,title'],
             'keywords' => ['required'],
             'description' => ['required'],
-            'image caption' => ['string'],
+            'image_caption' => ['string'],
             'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'blog' => ['required'],
             'model' => ['required'] ,
@@ -51,8 +51,6 @@ class PostController extends Controller
             $data['thumbnail'] = FileUploader::uploadFile( $request->file('thumbnail') );
 
             $data['slug'] = $this->slug($request['title']);
-
-            $data['image_caption'] = $request['image caption'] ;
 
             $data['celebrity_id'] = $request['model'] ;
 
@@ -86,7 +84,7 @@ class PostController extends Controller
                 'title' => ['required'],
                 'keywords' => ['required'],
                 'description' => ['required'],
-                'image caption' => ['string'],
+                'image_caption' => ['string'],
                 'thumbnail' => ['image', 'mimes:jpeg,png,jpg,gif,svg'],
                 'blog' => ['required'],
                 'model' => ['required'] ,
@@ -99,8 +97,6 @@ class PostController extends Controller
             $data['thumbnail'] = $request->file('thumbnail') ?  FileUploader::uploadFile( $request->file('thumbnail') ) : $id['thumbnail'] ;
 
             $data['slug'] = $this->slug($request['title']);
-
-            $data['image_caption'] = $request['image caption'] ;
 
             $data['celebrity_id'] = $request['model'] ;
 

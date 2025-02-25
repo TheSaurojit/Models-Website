@@ -43,7 +43,7 @@
 
                         <x-admin.image-component name="thumbnail"/>
 
-                        <x-admin.input-field  type="text" name="image caption" />
+                        <x-admin.input-field  type="text" name="image_caption" />
 
                         <x-admin.input-field  type="datetime-local" name="created_at" />
 
