@@ -45,7 +45,7 @@
 
                         <x-admin.input-field  type="text" name="image caption" />
 
-                        <x-admin.input-field  type="datetime-local" name="created at" />
+                        <x-admin.input-field  type="datetime-local" name="created_at" />
 
 
                         <x-admin.text-area />

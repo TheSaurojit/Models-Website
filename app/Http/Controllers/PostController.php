@@ -43,7 +43,7 @@ class PostController extends Controller
             'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'blog' => ['required'],
             'model' => ['required'] ,
-            'created' => ['required'] ,
+            'created_at' => ['required'] ,
         ]);
 
         try {
@@ -55,8 +55,6 @@ class PostController extends Controller
             $data['image_caption'] = $request['image caption'] ;
 
             $data['celebrity_id'] = $request['model'] ;
-
-            $data['created_at'] = $request['created'] ;
 
             Posts::create(
                 $data
@@ -92,7 +90,7 @@ class PostController extends Controller
                 'thumbnail' => ['image', 'mimes:jpeg,png,jpg,gif,svg'],
                 'blog' => ['required'],
                 'model' => ['required'] ,
-                'created' => ['required'] ,
+                'created_at' => ['required'] ,
 
             ]);
 
@@ -105,8 +103,6 @@ class PostController extends Controller
             $data['image_caption'] = $request['image caption'] ;
 
             $data['celebrity_id'] = $request['model'] ;
-
-            $data['created_at'] = $request['created'] ;
 
 
             $id->update(

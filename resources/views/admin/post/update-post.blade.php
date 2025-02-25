@@ -50,7 +50,7 @@
 
                         <x-admin.input-field  type="text" name="image_caption" value="{{ $post['image_caption'] }}"/>
 
-                        <x-admin.input-field  type="datetime-local" name="created" value="{{ $post['created_at'] }}"/>
+                        <x-admin.input-field  type="datetime-local" name="created_at" value="{{ $post['created_at'] }}"/>
 
 
                         <x-admin.text-area value="{{ $post['blog'] }}" />
