@@ -53,19 +53,19 @@
                     <div class="hidden md:flex space-x-4 md:space-y-4 flex-row md:flex-col md:mt-14">
                         <img src="<?php echo e($celebrity['image-1']); ?>" 
                              alt="Model thumbnail 1" 
-                             class="w-[150px] md:ml-4 h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
+                             class="w-[250px] md:ml-4 h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
                              onclick="updateMainImage(this.src)">
                         <img src="<?php echo e($celebrity['image-2']); ?>" 
                              alt="Model thumbnail 2" 
-                             class="w-[150px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
+                             class="w-[250px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
                              onclick="updateMainImage(this.src)">
                         <img src="<?php echo e($celebrity['image-3']); ?>" 
                              alt="Model thumbnail 3" 
-                             class="w-[150px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
+                             class="w-[250px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
                              onclick="updateMainImage(this.src)">
                         <img src="<?php echo e($celebrity['image-4']); ?>" 
                              alt="Model thumbnail 4" 
-                             class="w-[150px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
+                             class="w-[250px] h-[123px] object-cover cursor-pointer thumbnail-img hover:opacity-80 transition-opacity"
                              onclick="updateMainImage(this.src)">
                     </div>
 
@@ -103,7 +103,7 @@
                     </div>
                 </div>
 
-                <div class="hidden md:block md:mt-20 ml-[-30px]">
+                <div class="hidden md:block md:mt-20">
                     <div class="w-[620px] h-[540px] flex justify-center items-center overflow-hidden">
                         <img src="<?php echo e($image); ?>" 
                              alt="Main model image" 
@@ -114,7 +114,7 @@
 
                 <div class="md:mt-20 w-full">
                     <div class="hidden md:block">
-                        <h1 class="text-4xl whitespace-nowrap text-[#C3C3C3] text-center"><?php echo e($name); ?></h1>
+                        <h1 class="text-4xl whitespace-nowrap text-[#C3C3C3] text-center md:ml-[-100px]"><?php echo e($name); ?></h1>
                     </div>
 
                     <div class="flex justify-center md:justify-start gap-52 mt-5">
@@ -216,6 +216,9 @@
             </div>
         </div>
     </section>
+
+    <?php echo $__env->make('components.layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
