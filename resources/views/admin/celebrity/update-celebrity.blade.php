@@ -29,6 +29,10 @@
 
                         <x-admin.input-field  type="text" name="instagram"  value="{{ $celebrity['instagram'] }}"/>
 
+                        {{-- <x-admin.select-field name="trending" :options="['Yes' ,'No']" value="{{ $celebrity['trending'] }}"/> --}}
+
+                        <x-admin.select-field name="trending" :options="['Yes', 'No']" value="{{ $celebrity['trending'] == 1 ? 'Yes' : 'No' }}"/>
+
 
                         <x-admin.image-component name="image-1"  value="{{ $celebrity['image-1'] }}" />
                         <x-admin.image-component name="image-2"  value="{{ $celebrity['image-2'] }}" />

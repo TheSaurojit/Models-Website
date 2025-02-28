@@ -147,7 +147,7 @@
 
                         <?php if (isset($component)) { $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $attributes; } ?>
-<?php $component = App\View\Components\Admin\InputField::resolve(['type' => 'datetime-local','name' => 'created','value' => ''.e($post['created_at']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = App\View\Components\Admin\InputField::resolve(['type' => 'datetime-local','name' => 'created_at','value' => ''.e($post['created_at']).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('admin.input-field'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>

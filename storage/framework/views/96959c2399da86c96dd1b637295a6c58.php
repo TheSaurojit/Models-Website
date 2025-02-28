@@ -1,6 +1,3 @@
-
-
-
 <?php $__env->startSection('body'); ?>
 
 
@@ -102,6 +99,28 @@
 <?php endif; ?>
 
 
+                        <?php if (isset($component)) { $__componentOriginal561664b0286d002fd7c31e8b1ae6a7bd = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal561664b0286d002fd7c31e8b1ae6a7bd = $attributes; } ?>
+<?php $component = App\View\Components\Admin\SelectField::resolve(['name' => 'trending','options' => ['Yes' ,'No'],'value' => 'No'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('admin.select-field'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Admin\SelectField::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal561664b0286d002fd7c31e8b1ae6a7bd)): ?>
+<?php $attributes = $__attributesOriginal561664b0286d002fd7c31e8b1ae6a7bd; ?>
+<?php unset($__attributesOriginal561664b0286d002fd7c31e8b1ae6a7bd); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal561664b0286d002fd7c31e8b1ae6a7bd)): ?>
+<?php $component = $__componentOriginal561664b0286d002fd7c31e8b1ae6a7bd; ?>
+<?php unset($__componentOriginal561664b0286d002fd7c31e8b1ae6a7bd); ?>
+<?php endif; ?>
+
+
                         <?php if (isset($component)) { $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal73ae9aafd6f77a6862c832f9ebab345e = $attributes; } ?>
 <?php $component = App\View\Components\Admin\ImageComponent::resolve(['name' => 'image-1'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -182,8 +201,6 @@
 <?php $component = $__componentOriginal73ae9aafd6f77a6862c832f9ebab345e; ?>
 <?php unset($__componentOriginal73ae9aafd6f77a6862c832f9ebab345e); ?>
 <?php endif; ?>
-
-
 
 
                         <?php if (isset($component)) { $__componentOriginal1b76b0dddcf5d81e609c55b3b1b5e494 = $component; } ?>

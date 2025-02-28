@@ -27,6 +27,9 @@ class AppServiceProvider extends ServiceProvider
     {
         // view()->share('allCategory', Category::with(['posts'])->get());
 
+        view()->share('trendingCeleb', Celebrity::where('trending',1)->latest()->limit(3)->get());
+
+
         view()->share('allCelebrity', Celebrity::with(['posts'])->get());
 
         view()->share('recentPosts', Posts::with('celebrity')->latest()->limit(50)->get());

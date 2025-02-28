@@ -49,10 +49,10 @@
 
                             <a href="/" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="/admin/assets/images/logo-light.svg" alt="" height="22">
+                                    <img src="/imagess/Models Realm.png" alt="" height="100px">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="/admin/assets/images/logo-light.png" alt="" height="19">
+                                    <img src="/imagess/Models Realm.png" alt="" height="100px">
                                 </span>
                             </a>
                         </div>
@@ -71,9 +71,9 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="/admin/assets/images/users/avatar-1.jpg"
-                                    alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+                                {{-- <img class="rounded-circle header-profile-user" src="/admin/assets/images/users/avatar-1.jpg" --}}
+                                    {{-- alt="Header Avatar"> --}}
+                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">Admin</span>
                                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">

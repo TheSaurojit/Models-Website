@@ -10,7 +10,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>Models website</title>
+    <title>Models Realm</title>
 </head>
 
 <body>
@@ -45,29 +45,22 @@
                     </a>
                     <div class="absolute top-12 left-12 max-w-md">
                         <p class="text-sm text-gray-800 mr-36 hidden md:block">
-                            Insider HackZ is an online resource that serves as a comprehensive guide for penetration
-                            testers, security researchers, and ethical hackers. It is part of the MetaupSpace network
-                            and covers a wide range of knowledge, tips, and tricks related to cybersecurity.
+                            {{ Str::words($post->celebrity->bio, 15) }}
                         </p>
                     </div>
 
                     <div class="absolute top-4 right-6 max-w-md text-right">
                         <p class="text-sm text-gray-800 m-10">
-                            Insider HackZ
-                        </p>
-                    </div>
-
-                    <div class="absolute bottom-10 right-8 max-w-md text-right hidden md:block">
-                        <p class="text-sm text-gray-800 m-10 ">
-                            Insider HackZ is an online resource that serves as a comprehensive guide for penetration
-                            testers, security researchers, and ethical hackers.
+                           {{ $post->celebrity->name }}
                         </p>
                     </div>
 
                     <div class="absolute bottom-10 left-5 max-w-md text-right hidden md:block">
-                        <p class="text-sm text-gray-800 m-10">
-                            Insider HackZ is an online resource that
-                        </p>
+                        <a href="{{ $post->celebrity->instagram }}">
+                            <p class="text-sm text-gray-800 m-10">
+                            Instagram
+                            </p>
+                        </a>
                     </div>
 
                 </div>
@@ -110,9 +103,9 @@
 
         <div class="hidden md:flex gap-10 m-10 max-w-7xl mx-auto 2xl:ml-52">
 
-            @if (isset($allCelebrity[0]))
+            @if (isset($trendingCeleb[0]))
                 @php
-                    $model = $allCelebrity[0];
+                    $model = $trendingCeleb[0];
                     $name = $model['name'];
                     $bio = $model['bio'];
                     $image = $model['image-1'];
@@ -138,9 +131,9 @@
             @endif
 
 
-            @if (isset($allCelebrity[1]))
+            @if (isset($trendingCeleb[1]))
                 @php
-                    $model = $allCelebrity[1];
+                    $model = $trendingCeleb[1];
                     $name = $model['name'];
                     $bio = $model['bio'];
                     $image = $model['image-1'];
@@ -164,9 +157,9 @@
             @endif
 
 
-            @if (isset($allCelebrity[2]))
+            @if (isset($trendingCeleb[2]))
                 @php
-                    $model = $allCelebrity[2];
+                    $model = $trendingCeleb[2];
                     $name = $model['name'];
                     $bio = $model['bio'];
                     $image = $model['image-1'];

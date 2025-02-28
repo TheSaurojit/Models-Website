@@ -34,12 +34,11 @@ class PostController extends Controller
     public function create(Request $request)
     {
   
-
         $data = $request->validate([
             'title' => ['required', 'unique:posts,title'],
-            'keywords' => ['required'],
-            'description' => ['required'],
-            'image_caption' => ['string'],
+            'keywords' => ['nullable'],
+            'description' => ['nullable'],
+            'image_caption' => ['nullable'],
             'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'blog' => ['required'],
             'model' => ['required'] ,
@@ -82,9 +81,9 @@ class PostController extends Controller
 
             $data = $request->validate([
                 'title' => ['required'],
-                'keywords' => ['required'],
-                'description' => ['required'],
-                'image_caption' => ['string'],
+                'keywords' => ['nullable'],
+                'description' => ['nullable'],
+                'image_caption' => ['nullable'],
                 'thumbnail' => ['image', 'mimes:jpeg,png,jpg,gif,svg'],
                 'blog' => ['required'],
                 'model' => ['required'] ,

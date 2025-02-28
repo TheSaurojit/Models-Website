@@ -26,12 +26,13 @@
                         <x-admin.input-field  type="text" name="instagram" />
 
 
+                        <x-admin.select-field name="trending" :options="['Yes' ,'No']" value="No"/>
+
+
                         <x-admin.image-component name="image-1"/>
                         <x-admin.image-component name="image-2"/>
                         <x-admin.image-component name="image-3"/>
                         <x-admin.image-component name="image-4"/>
-
-
 
 
                         <x-admin.input-field  type="submit" name="submit" />

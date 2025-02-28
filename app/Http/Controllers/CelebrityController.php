@@ -28,6 +28,8 @@ class CelebrityController extends Controller
             'image-4' => ['image'] ,
            ]) ;
 
+           $data['trending'] = $request['trending'] == "Yes" ? true : false ;
+
            $data['image-1'] = FileUploader::uploadFile( $request->file('image-1') );
 
            $data['image-2'] = $request->file('image-2') ?  FileUploader::uploadFile( $request->file('image-2') ) : "" ;
@@ -67,6 +69,8 @@ class CelebrityController extends Controller
            ]) ; 
 
         try {
+            
+            $updatedData['trending'] = $request['trending'] == "Yes" ? true : false ;
             
             $updatedData['image-1'] = $request->file('image-1') ?  FileUploader::uploadFile( $request->file('image-1') ) : $id['image-1'] ;
             $updatedData['image-2'] = $request->file('image-2') ?  FileUploader::uploadFile( $request->file('image-2') ) : $id['image-2'] ;

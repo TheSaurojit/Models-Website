@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('name')->nullable();
             $table->longText('bio')->nullable();
             $table->enum('gender', ['Male', 'Female' ,'Transgender'])->nullable();
+            $table->boolean('trending')->default(0);
 
             $table->longText('image-1')->nullable();
             $table->longText('image-2')->nullable();

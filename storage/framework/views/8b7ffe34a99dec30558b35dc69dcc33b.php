@@ -39,7 +39,7 @@
             </div>
           </div>
 
-          <a href="/contact" class="bg-[#ecebeb] px-4 py-2 hover:bg-gray-800 transition-colors">
+          <a href="/contact" class="bg-[#ecebeb] px-4 py-2  transition-colors">
             Contact us
           </a>
         </div>
