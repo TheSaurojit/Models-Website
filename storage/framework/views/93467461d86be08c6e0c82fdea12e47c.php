@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/css/style.css', 'resources/js/app.js']); ?>
-    <title>Document</title>
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
+    <title><?php echo e(Str::title($celebrity["name"])); ?> | <?php echo e(env("APP_NAME")); ?></title>
+
 </head>
 <body>
     <?php echo $__env->make('components.layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -33,7 +34,7 @@
                         <div class="max-w-md mt-4 ml-auto">
                             <div class="flex gap-3">
                                 <i class="fa-brands fa-instagram"></i>
-                                <p class="mt-[-4px]">@Aria Forsa</p>
+                                <a href="" class="mt-[-4px]">@Aria Forsa</a>
                             </div>
                       
                         </div>
@@ -108,13 +109,13 @@
                         <img src="<?php echo e($image); ?>" 
                              alt="Main model image" 
                              id="mainImage"
-                             class="w-[620px] h-[540px] object-cover transition-opacity duration-300">
+                             class="w-[600px] h-[530px] object-cover transition-opacity duration-300">
                     </div>
                 </div>
 
                 <div class="md:mt-20 w-full">
                     <div class="hidden md:block">
-                        <h1 class="text-4xl whitespace-nowrap text-[#C3C3C3] text-center"><?php echo e($name); ?></h1>
+                        <h1 class="text-4xl whitespace-nowrap text-[#C3C3C3] text-center md:ml-[-100px]"><?php echo e($name); ?></h1>
                     </div>
 
                     <div class="flex justify-center md:justify-start gap-52 mt-5">
@@ -122,7 +123,7 @@
                             <h4><?php echo e($name); ?></h4>
                             <p class="text-[#696A6E]">Model</p>
                         </div>
-                        <div class="md:ml-28">
+                        <div class="md:ml-20">
                             <h4>Gender</h4>
                             <p class="text-[#696A6E]"><?php echo e($gender); ?></p>
                         </div>
@@ -143,12 +144,12 @@
                                         
                                     ?>
 
-                                    <a href="<?php echo e($url); ?>">
-                                        <div class="swiper-slide flex flex-col items-start">
+                                    <div class="swiper-slide flex flex-col items-start">
+                                            <a href="<?php echo e($url); ?>">
                                             <img src="<?php echo e($image); ?>" class="w-72 h-36">  
                                             <h2 class="text-xs font-semibold mt-4"><?php echo e($title); ?> </h2>
+                                        </a>
                                         </div>
-                                    </a>
 
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -170,12 +171,9 @@
                     <div class="max-w-md mt-4 hidden md:block">
                         <div class="flex gap-3">
                             <i class="fa-brands fa-instagram"></i>
-                            <p class="mt-[-4px]">@Aria Forsa</p>
+                            <a href="<?php echo e($celebrity->instagram); ?>" class="mt-[-4px]">@ <?php echo e($name); ?></a>
                         </div>
-                        <div class="flex gap-3 mt-2">
-                            <i class="fa-brands fa-facebook"></i>
-                            <p class="mt-[-4px]">@Aria Forsa</p>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -219,6 +217,9 @@
             </div>
         </div>
     </section>
+
+    <?php echo $__env->make('components.layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>

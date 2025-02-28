@@ -10,7 +10,7 @@
   href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>About Blogs</title>
+    <title>{{ Str::title($post->title) }} | {{ env("APP_NAME") }}</title>
 </head>
 
 
