@@ -19,9 +19,9 @@ class CelebrityController extends Controller
 
      $data =  $request->validate([
             'name' => ['required'] ,
-            'bio' => ['required'] ,
             'gender' => ['required'] ,
-            'instagram' => ['string'] ,
+            'bio' => ['nullable'] ,
+            'instagram' => ['nullable'] ,
             'image-1' => ['image','required'] ,
             'image-2' => ['image'] ,
             'image-3' => ['image'] ,
@@ -64,8 +64,9 @@ class CelebrityController extends Controller
 
         $updatedData =   $request->validate([
             'name' => ['required'] ,
-            'bio' => ['required'] ,
             'gender' => ['required'] ,
+            'bio' => ['nullable'] ,
+            'instagram' => ['nullable'] ,
            ]) ; 
 
         try {
