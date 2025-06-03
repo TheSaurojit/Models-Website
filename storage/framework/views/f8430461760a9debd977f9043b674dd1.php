@@ -3,15 +3,7 @@
     <footer>
       <div class="bg-[#262626] w-full h-[340px] flex text-white">
         <div class="flex gap-20">
-          <div class="mt-20 ml-20">
-            <h2 class="text-3xl">Support</h2>
-            <div class="space-y-3">
-              <p class="mt-5 text-md">Help & FAQ</p>
-              <p class="text-md">Contact Us</p>
-              <p class="text-md">Legal</p>
-              <p class="text-md">Privacy</p>
-            </div>
-          </div>
+          
     
           <div class="mt-20 ml-20">
             <h2 class="text-3xl">Community</h2>
@@ -41,15 +33,7 @@
             </div>
           </div>
     
-          <div class="mt-20 ml-20">
-            <h2 class="text-3xl">Community</h2>
-            <div class="space-y-3">
-              <p class="mt-5 text-md">Help & FAQ</p>
-              <p class="text-md">Contact Us</p>
-              <p class="text-md">Legal</p>
-              <p class="text-md">Privacy</p>
-            </div>
-          </div>
+          
         </div>
       </div>
     </footer>
@@ -60,18 +44,12 @@
       <div class="flex justify-between mt-7 px-10 py-6 ">
         <!-- Left Side (Social Media Icons) -->
         <div class="flex gap-6 items-center">
-          <a href="#" class="w-5">
-            <img src="/imagess/attach_file_add.png" alt="Attachment Icon" class="w-full">
-          </a>
-          <a href="#" class="w-5">
+          
+          <a href="https://www.instagram.com/themodelrealm?igsh=aGlsaG1jeHg5N3hm
+" class="w-5">
             <img src="/imagess/instagram 2.png" alt="Instagram Icon" class="w-full">
           </a>
-          <a href="#" class="w-5">
-            <img src="/imagess/youtube 3.png" alt="YouTube Icon" class="w-full">
-          </a>
-          <a href="#" class="w-5">
-            <img src="/imagess/facebook 2.png" alt="Facebook Icon" class="w-full">
-          </a>
+          
         </div>
     
         <div class="flex justify-center items-center">
@@ -80,8 +58,10 @@
           </a>
 
           <p class="mt-4 max-w-xl text-sm pl-52 text-right">
-            Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers, security researchers, and ethical hackers. 
-            It is part of the HackTricks platform, which offers a wide range of knowledge, tips, and tricks related to cybersecurity.
+            At Models Realm, we empower talent through a modern,
+personalized approach to the fashion and entertainment industry. Blending creativity with
+strategy, we’re more than just an agency — we’re your dedicated partner in building a
+lasting, impactful career.
           </p>
         </div>
       </div>
@@ -100,15 +80,10 @@
       <div class="w-full bg-black h-96">
         <div class="flex justify-center items-center">
           
-          <a href="#" class="w-10">
+          <a href="https://www.instagram.com/themodelrealm?igsh=aGlsaG1jeHg5N3hm" class="w-10">
             <img src="/imagess/instagram 2.png" alt="Instagram Icon" class="mt-10">
           </a>
-          <a href="#" class="w-10">
-            <img src="/imagess/facebook 2.png" alt="Facebook Icon" class="mt-10">
-          </a>
-          <a href="#" class="w-10">
-            <img src="/imagess/youtube 3.png" alt="YouTube Icon" class="mt-10">
-          </a>
+          
         </div>
 
         <div class="flex justify-center items-center w-full">

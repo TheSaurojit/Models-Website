@@ -10,7 +10,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
-    <title>Models website</title>
+    <title>Models Realm</title>
 </head>
 
 <body>
@@ -45,29 +45,24 @@
                     </a>
                     <div class="absolute top-12 left-12 max-w-md">
                         <p class="text-sm text-gray-800 mr-36 hidden md:block">
-                            Insider HackZ is an online resource that serves as a comprehensive guide for penetration
-                            testers, security researchers, and ethical hackers. It is part of the MetaupSpace network
-                            and covers a wide range of knowledge, tips, and tricks related to cybersecurity.
+                            <?php echo e(Str::words($post->celebrity->bio, 15)); ?>
+
                         </p>
                     </div>
 
                     <div class="absolute top-4 right-6 max-w-md text-right">
                         <p class="text-sm text-gray-800 m-10">
-                            Insider HackZ
-                        </p>
-                    </div>
+                           <?php echo e($post->celebrity->name); ?>
 
-                    <div class="absolute bottom-10 right-8 max-w-md text-right hidden md:block">
-                        <p class="text-sm text-gray-800 m-10 ">
-                            Insider HackZ is an online resource that serves as a comprehensive guide for penetration
-                            testers, security researchers, and ethical hackers.
                         </p>
                     </div>
 
                     <div class="absolute bottom-10 left-5 max-w-md text-right hidden md:block">
-                        <p class="text-sm text-gray-800 m-10">
-                            Insider HackZ is an online resource that
-                        </p>
+                        <a href="<?php echo e($post->celebrity->instagram); ?>">
+                            <p class="text-sm text-gray-800 m-10">
+                            Instagram
+                            </p>
+                        </a>
                     </div>
 
                 </div>
@@ -81,10 +76,10 @@
     <section class="mt-32 md:mt-5">
         <div class="text-center hidden md:block">
             <h2 class="text-[41.12px]">Team of Expert Consultants</h2>
-            <p class="text-[14.06px] ml-96 mr-96 mt-5">Insider HackZ is an online resource that serves as a
-                comprehensive guide for penetration testers, security researchers, and ethical hackers. It is part of
-                the HackTricks platform, which offers a wide range of knowledge, tips, and tricks related to
-                cybersecurity.
+            <p class="text-[14.06px] ml-96 mr-96 mt-5">Our expert consultants are more than industry professionals
+— they are mentors, guides, and creative partners. With years of experience in fashion,
+branding, and talent development, they work closely with each model to unlock their full
+potential, providing personalized support every step of the way.
             </p>
         </div>
 
@@ -110,9 +105,9 @@
 
         <div class="hidden md:flex gap-10 m-10 max-w-7xl mx-auto 2xl:ml-52">
 
-            <?php if(isset($allCelebrity[0])): ?>
+            <?php if(isset($trendingCeleb[0])): ?>
                 <?php
-                    $model = $allCelebrity[0];
+                    $model = $trendingCeleb[0];
                     $name = $model['name'];
                     $bio = $model['bio'];
                     $image = $model['image-1'];
@@ -138,9 +133,9 @@
             <?php endif; ?>
 
 
-            <?php if(isset($allCelebrity[1])): ?>
+            <?php if(isset($trendingCeleb[1])): ?>
                 <?php
-                    $model = $allCelebrity[1];
+                    $model = $trendingCeleb[1];
                     $name = $model['name'];
                     $bio = $model['bio'];
                     $image = $model['image-1'];
@@ -164,9 +159,9 @@
             <?php endif; ?>
 
 
-            <?php if(isset($allCelebrity[2])): ?>
+            <?php if(isset($trendingCeleb[2])): ?>
                 <?php
-                    $model = $allCelebrity[2];
+                    $model = $trendingCeleb[2];
                     $name = $model['name'];
                     $bio = $model['bio'];
                     $image = $model['image-1'];
@@ -271,9 +266,10 @@
                         Team of Expert Consultants
                     </h2>
                     <p class="transform rotate-90 text-center text-sm leading-tight max-w-[1200px] mt-28">
-                        Insider HackZ is an online resource that serves as a comprehensive guide for penetration
-                        testers, security researchers, and ethical hackers. It is part of the HackTricks platform, which
-                        offers a wide range of knowledge, tips, and tricks related to cybersecurity.
+                        Our expert consultants are more than industry professionals
+— they are mentors, guides, and creative partners. With years of experience in fashion,
+branding, and talent development, they work closely with each model to unlock their full
+potential, providing personalized support every step of the way.
                     </p>
                 </div>
             </div>
@@ -289,8 +285,9 @@
 
             <div class="w-full md:w-[500px] text-center md:text-right flex md:ml-auto">
                 <p>
-                    Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers,
-                    security researchers, and more.
+                    Whether you're just starting out or ready to take the next
+big step, we’re here to support your journey. At Models Realm, you're not just a face —
+you're a brand. Let’s build it together, with purpose, passion, and the right opportunities.
                 </p>
             </div>
         </div>
@@ -339,8 +336,9 @@
             <div class="hidden md:block">
                 <div class="flex flex-col md:flex-row ">
                     <div class="w-full md:w-[500px] text-center md:text-left">
-                        <p>Insider HackZ is an online resource that serves as a comprehensive guide for penetration
-                            testers, security researchers, and more.</p>
+                        <p>Step into the world of our models — where style meets
+                            story. From behind-the-scenes moments to personal journeys and industry tips, our blogs
+                            offer a real, unfiltered look at life beyond the lens.</p>
                     </div>
                     <h1
                         class="text-4xl md:text-6xl flex font-light md:ml-auto text-center md:text-right text-gray-600 mb-8 md:mb-16">

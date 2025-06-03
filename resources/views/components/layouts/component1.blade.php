@@ -3,6 +3,9 @@
         Team of Expert Consultants
     </h2>
     <p class="text-center text-sm m-4 leading-tight mt-5">
-      Insider HackZ is an online resource that serves as a comprehensive guide for penetration testers, security researchers, and ethical hackers. It is part of the HackTricks platform, which offers a wide range of knowledge, tips, and tricks related to cybersecurity.
+      Our expert consultants are more than industry professionals
+— they are mentors, guides, and creative partners. With years of experience in fashion,
+branding, and talent development, they work closely with each model to unlock their full
+potential, providing personalized support every step of the way.
     </p>
   </div>
